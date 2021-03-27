@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
             ElevatedButton(
               onPressed: () {
                 TeacherAssignment().addLevel(
-                    'randomname', 'Architect', '69', 'tiktok', 0, 'easy', 69);
+                    'randomname', 'Architect', '69', 'tiktok', 0, 'hard', 69);
               },
               child: Text("Press"),
             )
