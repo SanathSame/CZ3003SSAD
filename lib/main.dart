@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:powerup/HomePage.dart';
-import 'package:powerup/LoginPage.dart';
+import 'package:ssadgame/Boundary_classes/LoginPage.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 

@@ -1,10 +1,10 @@
 import 'dart:ui';
-import 'package:game_engine/Menu.dart';
+import 'package:ssadgame/game_engine/Menu.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game_engine/player_sprite/player_sprite.dart';
-import 'package:game_engine/Questions.dart';
+import 'package:ssadgame/game_engine/player_sprite/player_sprite.dart';
+import 'package:ssadgame/game_engine/Questions.dart';
 
 class Npc_child extends SimpleEnemy {
   Position initPosition;

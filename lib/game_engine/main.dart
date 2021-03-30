@@ -1,9 +1,9 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:game_engine/game.dart';
+import 'package:ssadgame/game_engine/game.dart';
 
-import 'package:game_engine/Menu.dart';
+import 'package:ssadgame/game_engine/Menu.dart';
 //import 'package:minifantasy/sprite_sheet_orc.dart';
 //import 'package:minifantasy/sprite_sheet_player.dart';
 

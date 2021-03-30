@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:game_engine/bar_life_component.dart';
-import 'package:game_engine/knight.dart';
+import 'package:ssadgame/game_engine/bar_life_component.dart';
+import 'package:ssadgame/game_engine/knight.dart';
 
 class KnightInterface extends GameInterface {
   @override
