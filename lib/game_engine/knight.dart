@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:game_engine/player_sprite/player_sprite.dart';
+import 'package:ssadgame/game_engine/player_sprite/player_sprite.dart';
 import 'package:flame/animation.dart' as FlameAnimation;
 
 import 'npc_child.dart';

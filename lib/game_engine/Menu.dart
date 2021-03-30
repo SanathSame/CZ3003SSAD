@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game_engine/game.dart';
-import 'package:game_engine/Questions.dart';
+import 'package:ssadgame/game_engine/game.dart';
+import 'package:ssadgame/game_engine/Questions.dart';
 
 class Menu extends StatefulWidget {
   _MenuState createState() => _MenuState();

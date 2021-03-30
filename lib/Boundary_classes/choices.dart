@@ -1,4 +1,4 @@
-import 'file:///C:/Users/ASUS/Desktop/CZ3003SSAD/lib/Boundary_classes/characterSelection.dart';
+import 'package:ssadgame/Boundary_classes/characterSelection.dart';
 import 'package:flutter/material.dart';
 
 void main() {

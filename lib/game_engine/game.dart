@@ -1,12 +1,12 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:game_engine/knight.dart';
-import 'package:game_engine/knight_interface.dart';
-import 'package:game_engine/npc.dart';
+import 'package:ssadgame/game_engine/knight.dart';
+import 'package:ssadgame/game_engine/knight_interface.dart';
+import 'package:ssadgame/game_engine/npc.dart';
 import 'dart:math';
 
-import 'package:game_engine/npc_child.dart';
+import 'package:ssadgame/game_engine/npc_child.dart';
 
 import 'boundary.dart';
 //import 'package:minifantasy/orc.dart';
