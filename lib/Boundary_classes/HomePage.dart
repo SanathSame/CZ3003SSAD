@@ -16,31 +16,24 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
-
-
-      body: Stack(
-        children: [
-          Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/homepage.png'),
-                    fit: BoxFit.fill,
-                  )
-              )
-          ),
-
-        ],
-      )
-    );
+        resizeToAvoidBottomInset: true,
+        body: Stack(
+          children: [
+            Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+              image: AssetImage('assets/homepage.png'),
+              fit: BoxFit.fill,
+            ))),
+          ],
+        ));
   }
 }
 
-Widget _titleContainer(String myTitle){
+Widget _titleContainer(String myTitle) {
   return Text(
     myTitle,
     style: TextStyle(
         color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
   );
 }
-
