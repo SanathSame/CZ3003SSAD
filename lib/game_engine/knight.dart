@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:ssadgame/game_engine/player_sprite/player_sprite.dart';
 import 'package:flame/animation.dart' as FlameAnimation;
 
 import 'npc_child.dart';
@@ -19,7 +18,31 @@ class Knight extends SimplePlayer {
           speed: 100,
           collision: Collision(height: tileSize / 2, width: tileSize / 2),
           initDirection: Direction.right,
-          animation: PlayerSpriteSheet.simpleDirectionAnimation,
+          animIdleLeft: Animation.sequenced(
+            "knight_idle_left.png",
+            6,
+            textureWidth: 16,
+            textureHeight: 16,
+          ),
+          animIdleRight: Animation.sequenced(
+            "knight_idle.png",
+            6,
+            textureWidth: 16,
+            textureHeight: 16,
+          ),
+          animRunLeft: Animation.sequenced(
+            "knight_run_left.png",
+            6,
+            textureWidth: 16,
+            textureHeight: 16,
+          ),
+          animRunRight: Animation.sequenced(
+            "knight_run.png",
+            6,
+            textureWidth: 16,
+            textureHeight: 16,
+          ),
+          //animation: PlayerSpriteSheet.simpleDirectionAnimation,
         );
 
   @override

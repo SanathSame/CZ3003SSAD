@@ -3,7 +3,7 @@ import 'package:ssadgame/game_engine/Menu.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ssadgame/game_engine/player_sprite/player_sprite.dart';
+import 'package:ssadgame/game_engine/player_sprite/enemy_sprite_sheet.dart';
 import 'package:ssadgame/game_engine/Questions.dart';
 
 class Npc_child extends SimpleEnemy {
@@ -19,7 +19,10 @@ class Npc_child extends SimpleEnemy {
           speed: 100,
           collision: Collision(height: tileSize, width: tileSize),
           initDirection: Direction.right,
-          animation: PlayerSpriteSheet.simpleDirectionAnimation,
+          animIdleLeft: EnemySpriteSheet.idleLeft,
+          animIdleRight: EnemySpriteSheet.idleRight,
+          animRunRight: EnemySpriteSheet.runRight,
+          animRunLeft: EnemySpriteSheet.runLeft,
         );
 
   @override
@@ -79,7 +82,6 @@ class Npc_child extends SimpleEnemy {
             width: 50,
             height: 50,
             child: AnimationWidget(
-              animation: animation.current,
               playing: true,
             ),
           ),
@@ -98,7 +100,6 @@ class Npc_child extends SimpleEnemy {
             width: 50,
             height: 50,
             child: AnimationWidget(
-              animation: animation.current,
               playing: true,
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:ssadgame/game_engine/player_sprite/player_sprite.dart';
 import 'package:flame/animation.dart' as FlameAnimation;
+import 'package:ssadgame/game_engine/player_sprite/enemy_sprite_sheet.dart';
 
 import 'npc_child.dart';
 
@@ -17,7 +18,10 @@ class Npc extends SimpleEnemy {
           speed: 100,
           collision: Collision(),
           initDirection: Direction.right,
-          animation: PlayerSpriteSheet.simpleDirectionAnimation,
+          animIdleLeft: EnemySpriteSheet.idleLeft,
+          animIdleRight: EnemySpriteSheet.idleRight,
+          animRunRight: EnemySpriteSheet.runRight,
+          animRunLeft: EnemySpriteSheet.runLeft,
         );
 
   void update(double dt) {

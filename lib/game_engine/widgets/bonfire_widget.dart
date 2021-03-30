@@ -6,7 +6,6 @@ import 'package:bonfire/game_interface/game_interface.dart';
 import 'package:bonfire/joystick/joystick_controller.dart';
 import 'package:bonfire/map/map_game.dart';
 import 'package:bonfire/player/player.dart';
-import 'package:bonfire/util/game_color_filter.dart';
 import 'package:bonfire/util/game_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +28,6 @@ class BonfireWidget extends StatefulWidget {
   final double cameraZoom;
   final Size cameraSizeMovementWindow;
   final bool cameraMoveOnlyMapArea;
-  final GameColorFilter colorFilter;
 
   const BonfireWidget({
     Key key,
@@ -48,7 +46,6 @@ class BonfireWidget extends StatefulWidget {
     this.collisionAreaColor,
     this.lightingColorGame,
     this.cameraZoom,
-    this.colorFilter,
     this.cameraMoveOnlyMapArea = false,
     this.cameraSizeMovementWindow = const Size(50, 50),
     this.components,
@@ -67,10 +64,12 @@ class _BonfireWidgetState extends State<BonfireWidget> {
       if (_game.map != null) _game.map.updateTiles(widget.map.tiles);
 
       _game.decorations().forEach((d) => d.remove());
-      if (widget.decorations != null) widget.decorations.forEach((d) => _game.addGameComponent(d));
+      if (widget.decorations != null)
+        widget.decorations.forEach((d) => _game.addGameComponent(d));
 
       _game.enemies().forEach((e) => e.remove());
-      if (widget.enemies != null) widget.enemies.forEach((e) => _game.addGameComponent(e));
+      if (widget.enemies != null)
+        widget.enemies.forEach((e) => _game.addGameComponent(e));
     }
     super.didUpdateWidget(oldWidget);
   }
@@ -91,13 +90,14 @@ class _BonfireWidgetState extends State<BonfireWidget> {
       showCollisionArea: widget.showCollisionArea,
       showFPS: widget.showFPS,
       gameController: widget.gameController,
-      constructionModeColor: widget.constructionModeColor ?? Colors.cyan.withOpacity(0.5),
-      collisionAreaColor: widget.collisionAreaColor ?? Colors.lightGreenAccent.withOpacity(0.5),
+      constructionModeColor:
+          widget.constructionModeColor ?? Colors.cyan.withOpacity(0.5),
+      collisionAreaColor:
+          widget.collisionAreaColor ?? Colors.lightGreenAccent.withOpacity(0.5),
       lightingColorGame: widget.lightingColorGame,
       cameraZoom: widget.cameraZoom,
       cameraSizeMovementWindow: widget.cameraSizeMovementWindow,
       cameraMoveOnlyMapArea: widget.cameraMoveOnlyMapArea,
-      colorFilter: widget.colorFilter,
     );
     super.initState();
   }

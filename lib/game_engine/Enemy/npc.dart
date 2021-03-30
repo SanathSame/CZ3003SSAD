@@ -1,10 +1,12 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flame/position.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ssadgame/game_engine/player_sprite/common_sprite_sheet.dart';
 import '../main.dart';
-import '../player_sprite/enemy_sprite_sheet.dart';
+import 'dart:ui';
+import 'package:ssadgame/game_engine/player_sprite/common_sprite_sheet.dart';
+import 'package:ssadgame/game_engine/player_sprite/enemy_sprite_sheet.dart';
+import 'package:flame/animation.dart' as FlameAnimation;
 
 class NPC extends SimpleEnemy {
   double attack = 20;
@@ -12,19 +14,24 @@ class NPC extends SimpleEnemy {
 
   NPC(Position initPosition, double tileSize)
       : super(
-      animation: EnemySpriteSheet.simpleDirectionAnimation,
-      initPosition: initPosition,
-      height: tileSize * .8,
-      width: tileSize * .8,
-      //speed: DungeonMap.tileSize * 1.6,
-      life: 100,
-      collision: Collision(
-          height: tileSize * 0.4,
-          width: tileSize * 0.4,
-          align: Offset(
-            tileSize * 0.2,
-            tileSize * 0.4,
-          )));
+          // animation: EnemySpriteSheet.simpleDirectionAnimation,
+          initPosition: initPosition,
+          height: tileSize * .8,
+          width: tileSize * .8,
+          //speed: DungeonMap.tileSize * 1.6,
+          life: 100,
+          collision: Collision(
+              height: tileSize * 0.4,
+              width: tileSize * 0.4,
+              align: Offset(
+                tileSize * 0.2,
+                tileSize * 0.4,
+              )),
+          animIdleLeft: EnemySpriteSheet.idleLeft,
+          animIdleRight: EnemySpriteSheet.idleRight,
+          animRunRight: EnemySpriteSheet.runRight,
+          animRunLeft: EnemySpriteSheet.runLeft,
+        );
 
   @override
   void update(double dt) {
@@ -32,9 +39,6 @@ class NPC extends SimpleEnemy {
     if (this.isDead) return;
 
     _seePlayerClose = false;
-
-
-
   }
 
   @override

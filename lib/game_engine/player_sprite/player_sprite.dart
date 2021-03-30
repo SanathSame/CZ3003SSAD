@@ -1,4 +1,6 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:ssadgame/direction_animations/simple_animation_enum.dart';
+import 'package:ssadgame/direction_animations/simple_direction_animation.dart';
 
 class PlayerSpriteSheet {
   static Animation get idleLeft => Animation.sequenced(
@@ -29,11 +31,11 @@ class PlayerSpriteSheet {
         textureHeight: 16,
       );
 
-  static SimpleDirectionAnimation get simpleDirectionAnimation =>
-      SimpleDirectionAnimation(
-        idleLeft: idleLeft,
-        idleRight: idleRight,
-        runLeft: runLeft,
-        runRight: runRight,
-      );
+  // static SimpleDirectionAnimation get simpleDirectionAnimation =>
+  //     SimpleDirectionAnimation(
+  //       idleLeft: idleLeft,
+  //       idleRight: idleRight,
+  //       runLeft: runLeft,
+  //       runRight: runRight,
+  //     );
 }
