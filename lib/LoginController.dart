@@ -1,4 +1,3 @@
-
 class LoginController{
 
   static bool accountInDB(String email, String password){

@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "751210022722",
+    "project_id": "ssad-game",
+    "storage_bucket": "ssad-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751210022722:android:ac1e7887ea7b3785b7eadb",
+        "android_client_info": {
+          "package_name": "com.example.powerup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751210022722-ob306pelgohad2lul2tmimi5qasjpkqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQkP_G00OM87vvQnhv35sCYzTd-jo1lX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751210022722-ob306pelgohad2lul2tmimi5qasjpkqo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751210022722:android:4e54a70eb5908c6eb7eadb",
+        "android_client_info": {
+          "package_name": "com.example.ssad_game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751210022722-ob306pelgohad2lul2tmimi5qasjpkqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQkP_G00OM87vvQnhv35sCYzTd-jo1lX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751210022722-ob306pelgohad2lul2tmimi5qasjpkqo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
