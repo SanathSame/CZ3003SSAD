@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:ssad_game/levelcreatorUI.dart';
+import 'package:ssadgame/Boundary_classes/levelcreatorUI.dart';
 
 void main() {
   runApp(
