@@ -43,6 +43,7 @@ class Npc_child extends SimpleEnemy {
           closePlayer: (player) {
             // showQuestions();
             //FightMe();
+            //showResult();
             showAnswer();
             die();
             //execAttack();
