@@ -8,18 +8,24 @@ import 'package:ssadgame/game_engine/Menu.dart';
 //import 'package:minifantasy/sprite_sheet_player.dart';
 
 double tileSize = 20.0;
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  if (!kIsWeb) {
-    await Flame.util.fullScreen();
-    await Flame.util.setPortrait();
-  }
-  //await SpriteSheetPlayer.load();
-  //await SpriteSheetOrc.load();
-  runApp(MyApp());
+// void main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   if (!kIsWeb) {
+//     await Flame.util.fullScreen();
+//     await Flame.util.setPortrait();
+//   }
+//   //await SpriteSheetPlayer.load();
+//   //await SpriteSheetOrc.load();
+//   runApp(MyApp());
+// }
+
+class GameEngine extends StatefulWidget {
+  @override
+  _GameEngineState createState() => _GameEngineState();
 }
 
-class MyApp extends StatelessWidget {
+class _GameEngineState extends State<GameEngine> {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
