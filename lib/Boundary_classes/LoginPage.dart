@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'HomePage.dart';
 
@@ -120,10 +121,34 @@ class _LoginPageState extends State<LoginPage> {
                                               .signInWithEmailAndPassword(
                                                   email: email.text,
                                                   password: password.text);
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  HomePage()));
+                                      // get user ID
+                                      // check Firestore for role
+                                      String userId =
+                                          FirebaseAuth.instance.currentUser.uid;
+                                      FirebaseFirestore.instance
+                                          .collection('users')
+                                          .doc(userId)
+                                          .get()
+                                          .then((documentSnapshot) {
+                                        if ((documentSnapshot.data()['role']) ==
+                                            'student') {
+                                          print("THIS IS A STUDENT");
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      HomePage()));
+                                        } else if ((documentSnapshot
+                                                .data()['role']) ==
+                                            'teacher') {
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      HomePage()));
+                                        }
+                                      });
+
+                                      // redirect them
+
                                     } on FirebaseException catch (e) {
                                       if (e.code == 'user-not-found') {
                                         print('No user found for that email.');
