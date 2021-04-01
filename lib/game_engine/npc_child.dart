@@ -1,4 +1,6 @@
+import 'dart:math';
 import 'dart:ui';
+import 'package:ssadgame/Boundary_classes/question_type/questions_3.dart';
 import 'package:ssadgame/game_engine/Menu.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,7 +9,6 @@ import 'package:ssadgame/game_engine/player_sprite/enemy_sprite_sheet.dart';
 import 'package:ssadgame/game_engine/Questions.dart';
 
 class Npc_child extends SimpleEnemy {
-
   Position initPosition;
   bool _seePlayerClose = false;
   double tileSize = 32;
@@ -33,7 +34,6 @@ class Npc_child extends SimpleEnemy {
   }
 
   void update(double dt) {
-
     super.update(dt);
     // if dead i stop
     if (this.isDead) return;
@@ -46,8 +46,6 @@ class Npc_child extends SimpleEnemy {
             // showQuestions();
             //FightMe();
             //showResult();
-
-
             showAnswer();
             die();
             //execAttack();
@@ -70,7 +68,6 @@ class Npc_child extends SimpleEnemy {
   }
 
   void die() {
-
     remove();
 
     super.die();
@@ -117,10 +114,9 @@ class Npc_child extends SimpleEnemy {
 
   void showAnswer() {
     // Navigates to question page
+    Random random = new Random();
+    int randomNumber = random.nextInt(5); // from 0 upto 99 included
     Navigator.push(
-        gameRef.context, MaterialPageRoute(builder: (context) => Questions())
-    );
-
-
+        gameRef.context, MaterialPageRoute(builder: (context) => mcq3()));
   }
 }
