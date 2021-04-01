@@ -32,25 +32,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/LoginPage',
-      routes: {
-        '/LoginPage': (context) => LoginPage(),
-        '/HomePage': (context) => HomePage(),
-        '/choices': (context) => GameMode(),
-        '/characterSelection': (context) => CharacterSelection(),
-        '/WorldPage': (context) => WorldPage(),
-        '/StagePage': (context) => StagePage(),
-        '/LevelPage': (context) => LevelPage(),
-        '/game_engine/main': (context) => GameEngine(),
-        '/AdventureLeaderBoardPage': (context) => AdventureLeaderBoardPage(),
-        '/PvPLeaderBoardPage': (context) => PvPLeaderBoardPage(),
-        '/LevelLeaderBoardPage': (context) => LevelLeaderBoardPage(),
-        '/WorldPage_Teacher' : (context) => WorldPage_Teacher(),
-        '/SummaryReportWorldPage': (context) => SummaryReportWorldPage(),
-        '/SummaryReportStagePage': (context) => SummaryReportStagePage(),
-        '/SummaryReportLevelPage': (context) => SummaryReportLevelPage(),
-
-      });
+    return MaterialApp(initialRoute: '/game_engine/main', routes: {
+      '/LoginPage': (context) => LoginPage(),
+      '/HomePage': (context) => HomePage(),
+      '/choices': (context) => GameMode(),
+      '/characterSelection': (context) => CharacterSelection(),
+      '/WorldPage': (context) => WorldPage(),
+      '/StagePage': (context) => StagePage(),
+      '/LevelPage': (context) => LevelPage(),
+      '/game_engine/main': (context) => GameEngine(),
+      '/AdventureLeaderBoardPage': (context) => AdventureLeaderBoardPage(),
+      '/PvPLeaderBoardPage': (context) => PvPLeaderBoardPage(),
+      '/LevelLeaderBoardPage': (context) => LevelLeaderBoardPage(),
+      '/WorldPage_Teacher': (context) => WorldPage_Teacher(),
+      '/SummaryReportWorldPage': (context) => SummaryReportWorldPage(),
+      '/SummaryReportStagePage': (context) => SummaryReportStagePage(),
+      '/SummaryReportLevelPage': (context) => SummaryReportLevelPage(),
+    });
   }
 }

@@ -1,10 +1,10 @@
-#Thu Apr 01 16:26:40 GMT+08:00 2021
+#Thu Apr 01 21:25:56 SGT 2021
 path.2=classes3.dex
 path.1=classes2.dex
 path.0=classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.2=C\:\\Users\\albin\\Desktop\\new\\CZ3003SSAD-main\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes3.dex
-base.1=C\:\\Users\\albin\\Desktop\\new\\CZ3003SSAD-main\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
-base.0=C\:\\Users\\albin\\Desktop\\new\\CZ3003SSAD-main\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+base.2=C\:\\Users\\ASUS\\Desktop\\CZ3003SSAD\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes3.dex
+base.1=C\:\\Users\\ASUS\\Desktop\\CZ3003SSAD\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
+base.0=C\:\\Users\\ASUS\\Desktop\\CZ3003SSAD\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex

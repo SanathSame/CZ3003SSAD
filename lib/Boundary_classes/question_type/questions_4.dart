@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'drag_and_drop_page.dart';
+//import 'drag_and_drop_page.dart';
 
 void main() => runApp(MaterialApp(
-  home: questions_4(),
-));
+      home: questions_4(),
+    ));
 
 class questions_4 extends StatefulWidget {
   @override
@@ -12,11 +12,10 @@ class questions_4 extends StatefulWidget {
 }
 
 class _questions_4State extends State<questions_4> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
+      body: SafeArea(
           left: true,
           right: true,
           bottom: true,
@@ -31,49 +30,48 @@ class _questions_4State extends State<questions_4> {
                 children: <Widget>[
                   Expanded(
                     child: Container(
-                      height: 70,
-                      width: 200,
-                      alignment: Alignment.center,
-                      child: Text("Level 2",
-                      style: TextStyle(
-                        fontSize: 20.0,
-                      ),
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(
+                        height: 70,
+                        width: 200,
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Level 2",
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                            border: Border.all(
                           color: Colors.black,
-                        )
-                      )
-                    ),
+                        ))),
                   ),
                   Expanded(
-                    child: Container(
-                      height: 70,
-                      alignment: Alignment.center,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Text("Score",
+                      child: Container(
+                    height: 70,
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Score",
                           style: TextStyle(
                             fontSize: 20.0,
-                          ),),
-                          Text("4/10",
-                          style: TextStyle(
-                            fontSize: 20.0,
-                          ))
-                        ],
-                      ),
-                      decoration: BoxDecoration(
+                          ),
+                        ),
+                        Text("4/10",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                            ))
+                      ],
+                    ),
+                    decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.black,
-                        )
-                      ),
-                    )
-                  )
+                      color: Colors.black,
+                    )),
+                  ))
                 ],
               ),
-              SizedBox(height:10),
+              SizedBox(height: 10),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -85,19 +83,20 @@ class _questions_4State extends State<questions_4> {
                       child: Container(
                         child: Padding(
                           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                          child: Text("Question 3:\n\nArrange the steps in the correct order of the Software Development Life Cycle (SDLC). Press and Hold for 3 seconds to Drag and Drop.",
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),),
-                        ),
-                          decoration: BoxDecoration(
-                            color: Colors.grey[350],
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 1.5,
+                          child: Text(
+                            "Question 3:\n\nArrange the steps in the correct order of the Software Development Life Cycle (SDLC). Press and Hold for 3 seconds to Drag and Drop.",
+                            style: TextStyle(
+                              fontSize: 20,
                             ),
-                            borderRadius: BorderRadius.all(Radius.circular(10)
                           ),
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[350],
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 1.5,
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
                         ),
                       ),
                     ),
@@ -114,12 +113,11 @@ class _questions_4State extends State<questions_4> {
                           color: Colors.black,
                           width: 1.5,
                         ),
-                        borderRadius: BorderRadius.all(Radius.circular(5)
-                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
                       ),
                     ),
                   ),
-                  SizedBox(height:15),
+                  SizedBox(height: 15),
                   Container(
                       width: 90,
                       child: Expanded(
@@ -139,15 +137,12 @@ class _questions_4State extends State<questions_4> {
                               ),
                               primary: Colors.white,
                               onPrimary: Colors.black,
-                            )
-                        ),
-                      )
-                  ),
+                            )),
+                      )),
                 ],
               ),
             ],
-          )
-        ),
+          )),
     );
   }
 }
