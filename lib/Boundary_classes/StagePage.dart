@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'LevelPage.dart';
 
 class StagePage extends StatefulWidget {
+  final title;
+  StagePage({this.title});
   @override
-  _StagePageState createState() =>  _StagePageState();
+  _StagePageState createState() => _StagePageState();
 }
 
 //SELECT STAGE PAGE
@@ -14,7 +16,8 @@ class _StagePageState extends State<StagePage> {
     return Scaffold(
       //AppBar
       appBar: AppBar(
-        title: Text("Select Stage",
+        title: Text(
+          "Select Stage",
           style: TextStyle(
             fontFamily: 'Orbitron',
             fontWeight: FontWeight.w500,
@@ -22,10 +25,9 @@ class _StagePageState extends State<StagePage> {
             color: Colors.black,
             shadows: <Shadow>[
               Shadow(
-                  offset: Offset(0,2),
+                  offset: Offset(0, 2),
                   blurRadius: 3.0,
-                  color: Color.fromARGB(100, 0, 0, 0)
-              )
+                  color: Color.fromARGB(100, 0, 0, 0))
             ],
           ),
         ),
@@ -63,35 +65,32 @@ class _StagePageState extends State<StagePage> {
                   child: Align(
                     alignment: Alignment.topCenter,
                     heightFactor: 2.0,
-                    child: Text("Requirement Specification", //Hardcoded, need to change
+                    child: Text(
+                      widget.title, //Hardcoded, need to change
                       style: TextStyle(
                         fontFamily: 'Orbitron',
                         fontSize: 17,
                         decorationColor: Colors.black,
                         color: Colors.black,
                       ),
-                      textAlign: TextAlign.center,),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   decoration: BoxDecoration(
                     border: Border(
-                      top: BorderSide(
-                          width: 1.0,
-                          color: Colors.black),
-                      bottom: BorderSide(
-                          width: 1.0,
-                          color: Colors.black),
+                      top: BorderSide(width: 1.0, color: Colors.black),
+                      bottom: BorderSide(width: 1.0, color: Colors.black),
                     ),
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 20),//Adds space between the children of the Column
+          SizedBox(height: 20), //Adds space between the children of the Column
 
           //The buttons
           Expanded(
-            child :
-            ListView(
+            child: ListView(
               scrollDirection: Axis.vertical,
               children: <Widget>[
                 //Button 1
@@ -99,38 +98,42 @@ class _StagePageState extends State<StagePage> {
                   child: Container(
                     padding: EdgeInsets.fromLTRB(20, 5, 20, 10),
                     child: RaisedButton(
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LevelPage(Title: "Requirements Elicitation")),
+                              builder: (context) =>
+                                  LevelPage(Title: "Requirements Elicitation")),
                         );
-                      },//Need to link to the next page
+                      }, //Need to link to the next page
                       child: Stack(
                         //alignment: Alignment.topRight,
                         children: <Widget>[
                           Column(
                             children: <Widget>[
-                              SizedBox(height:20),
+                              SizedBox(height: 20),
                               Container(
-                                child: Text("Stage 1",
+                                child: Text(
+                                  "Stage 1",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 27,
-                                    fontFamily: 'Orbitron',),
+                                    fontFamily: 'Orbitron',
+                                  ),
                                 ),
                               ),
-                              SizedBox(height:10),
+                              SizedBox(height: 10),
                               Container(
-                                  child: Text("Requirements Elicitation",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontFamily: 'Orbitron',
-                                    ),)
-                              ),
-                              SizedBox(height:20),
+                                  child: Text(
+                                "Requirements Elicitation",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontFamily: 'Orbitron',
+                                ),
+                              )),
+                              SizedBox(height: 20),
                             ],
                           ),
                           Positioned(
@@ -154,8 +157,7 @@ class _StagePageState extends State<StagePage> {
                       ),
                       color: Colors.white,
                       shape: new RoundedRectangleBorder(
-                        side: BorderSide(
-                            color: Colors.black),
+                        side: BorderSide(color: Colors.black),
                         borderRadius: new BorderRadius.circular(10.0),
                       ),
                     ),
@@ -167,38 +169,42 @@ class _StagePageState extends State<StagePage> {
                   child: Container(
                     padding: EdgeInsets.fromLTRB(20, 5, 20, 10),
                     child: RaisedButton(
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LevelPage(Title: "Requirements Analysis")),
+                              builder: (context) =>
+                                  LevelPage(Title: "Requirements Analysis")),
                         );
-                      },//Need to link to the next page
+                      }, //Need to link to the next page
                       child: Stack(
                         //alignment: Alignment.topRight,
                         children: <Widget>[
                           Column(
                             children: <Widget>[
-                              SizedBox(height:20),
+                              SizedBox(height: 20),
                               Container(
-                                child: Text("Stage 2",
+                                child: Text(
+                                  "Stage 2",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 27,
-                                    fontFamily: 'Orbitron',),
+                                    fontFamily: 'Orbitron',
+                                  ),
                                 ),
                               ),
-                              SizedBox(height:10),
+                              SizedBox(height: 10),
                               Container(
-                                  child: Text("Requirements Analysis",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontFamily: 'Orbitron',
-                                    ),)
-                              ),
-                              SizedBox(height:20),
+                                  child: Text(
+                                "Requirements Analysis",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontFamily: 'Orbitron',
+                                ),
+                              )),
+                              SizedBox(height: 20),
                             ],
                           ),
                           Positioned(
@@ -222,8 +228,7 @@ class _StagePageState extends State<StagePage> {
                       ),
                       color: Colors.white,
                       shape: new RoundedRectangleBorder(
-                        side: BorderSide(
-                            color: Colors.black),
+                        side: BorderSide(color: Colors.black),
                         borderRadius: new BorderRadius.circular(10.0),
                       ),
                     ),
@@ -235,13 +240,14 @@ class _StagePageState extends State<StagePage> {
                   child: Container(
                     padding: EdgeInsets.fromLTRB(20, 5, 20, 10),
                     child: RaisedButton(
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LevelPage(Title: "Requirements Specifications")),
+                              builder: (context) => LevelPage(
+                                  Title: "Requirements Specifications")),
                         );
-                      },//Need to link to the next page
+                      }, //Need to link to the next page
                       child: Stack(
                         alignment: Alignment.topRight,
                         children: <Widget>[
@@ -265,36 +271,37 @@ class _StagePageState extends State<StagePage> {
                           Expanded(
                             child: Column(
                               children: <Widget>[
-                                SizedBox(height:20),
+                                SizedBox(height: 20),
                                 Container(
-                                  child: Text("Stage 3",
+                                  child: Text(
+                                    "Stage 3",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 27,
-                                      fontFamily: 'Orbitron',),
+                                      fontFamily: 'Orbitron',
+                                    ),
                                   ),
                                 ),
-                                SizedBox(height:10),
+                                SizedBox(height: 10),
                                 Container(
-                                    child: Text("Requirements Specifications",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontFamily: 'Orbitron',
-                                      ),)
-                                ),
-                                SizedBox(height:20),
+                                    child: Text(
+                                  "Requirements Specifications",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontFamily: 'Orbitron',
+                                  ),
+                                )),
+                                SizedBox(height: 20),
                               ],
                             ),
                           ),
-
                         ],
                       ),
                       color: Colors.white,
                       shape: new RoundedRectangleBorder(
-                        side: BorderSide(
-                            color: Colors.black),
+                        side: BorderSide(color: Colors.black),
                         borderRadius: new BorderRadius.circular(10.0),
                       ),
                     ),
@@ -306,38 +313,42 @@ class _StagePageState extends State<StagePage> {
                   child: Container(
                     padding: EdgeInsets.fromLTRB(20, 5, 20, 10),
                     child: RaisedButton(
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LevelPage(Title: "Requirements XYZZZ")),
+                              builder: (context) =>
+                                  LevelPage(Title: "Requirements XYZZZ")),
                         );
-                      },//Need to link to the next page
+                      }, //Need to link to the next page
                       child: Stack(
                         //alignment: Alignment.topRight,
                         children: <Widget>[
                           Column(
                             children: <Widget>[
-                              SizedBox(height:20),
+                              SizedBox(height: 20),
                               Container(
-                                child: Text("Stage 4",
+                                child: Text(
+                                  "Stage 4",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 27,
-                                    fontFamily: 'Orbitron',),
+                                    fontFamily: 'Orbitron',
+                                  ),
                                 ),
                               ),
-                              SizedBox(height:10),
+                              SizedBox(height: 10),
                               Container(
-                                  child: Text("Requirements XYZZZ",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontFamily: 'Orbitron',
-                                    ),)
-                              ),
-                              SizedBox(height:20),
+                                  child: Text(
+                                "Requirements XYZZZ",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontFamily: 'Orbitron',
+                                ),
+                              )),
+                              SizedBox(height: 20),
                             ],
                           ),
                           Positioned(
@@ -361,52 +372,53 @@ class _StagePageState extends State<StagePage> {
                       ),
                       color: Colors.white,
                       shape: new RoundedRectangleBorder(
-                        side: BorderSide(
-                            color: Colors.black),
+                        side: BorderSide(color: Colors.black),
                         borderRadius: new BorderRadius.circular(10.0),
                       ),
                     ),
                   ),
                 ),
 
-
                 //Button 5 - LOCKED
                 Expanded(
                   child: Container(
                     padding: EdgeInsets.fromLTRB(20, 5, 20, 10),
                     child: RaisedButton(
-                      onPressed: (){
+                      onPressed: () {
                         // Navigator.push(
                         //   context,
                         //   MaterialPageRoute(
                         //       builder: (context) => LevelPage(Title: "Requirements Elicitation")),
                         // );
-                      },//Need to link to the next page
+                      }, //Need to link to the next page
                       child: Stack(
                         alignment: Alignment.center,
                         children: <Widget>[
                           Column(
                             children: <Widget>[
-                              SizedBox(height:20),
+                              SizedBox(height: 20),
                               Container(
-                                child: Text("Stage 5",
+                                child: Text(
+                                  "Stage 5",
                                   style: TextStyle(
                                     color: Colors.grey[600],
                                     fontWeight: FontWeight.w500,
                                     fontSize: 27,
-                                    fontFamily: 'Orbitron',),
+                                    fontFamily: 'Orbitron',
+                                  ),
                                 ),
                               ),
-                              SizedBox(height:10),
+                              SizedBox(height: 10),
                               Container(
-                                  child: Text("Requirements Elicitation",
-                                    style: TextStyle(
-                                      color: Colors.grey[600],
-                                      fontSize: 20,
-                                      fontFamily: 'Orbitron',
-                                    ),)
-                              ),
-                              SizedBox(height:20),
+                                  child: Text(
+                                "Requirements Elicitation",
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 20,
+                                  fontFamily: 'Orbitron',
+                                ),
+                              )),
+                              SizedBox(height: 20),
                             ],
                           ),
                           Positioned(
@@ -420,25 +432,23 @@ class _StagePageState extends State<StagePage> {
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               child: Center(
-                                child: Text("35/50",
+                                child: Text(
+                                  "35/50",
                                   style: TextStyle(
                                     color: Colors.grey[600],
-                                  ),),
+                                  ),
+                                ),
                               ),
                             ),
                             top: 20,
                             right: 0,
                           ),
-                          Icon(
-                              Icons.lock,
-                              size: 60,
-                              color: Colors.grey[800]),
+                          Icon(Icons.lock, size: 60, color: Colors.grey[800]),
                         ],
                       ),
                       color: Colors.grey[400],
                       shape: new RoundedRectangleBorder(
-                        side: BorderSide(
-                            color: Colors.black),
+                        side: BorderSide(color: Colors.black),
                         borderRadius: new BorderRadius.circular(10.0),
                       ),
                     ),
