@@ -1,10 +1,20 @@
+<<<<<<< HEAD
 #Thu Apr 01 20:33:35 SGT 2021
+=======
+#Thu Apr 01 21:25:56 SGT 2021
+>>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351
 path.2=classes3.dex
 path.1=classes2.dex
 path.0=classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
+<<<<<<< HEAD
 base.2=/Users/chris/dev/CZ3003SSAD/build/app/intermediates/dex/debug/mergeDexDebug/out/classes3.dex
 base.1=/Users/chris/dev/CZ3003SSAD/build/app/intermediates/dex/debug/mergeDexDebug/out/classes2.dex
 base.0=/Users/chris/dev/CZ3003SSAD/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+=======
+base.2=C\:\\Users\\ASUS\\Desktop\\CZ3003SSAD\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes3.dex
+base.1=C\:\\Users\\ASUS\\Desktop\\CZ3003SSAD\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
+base.0=C\:\\Users\\ASUS\\Desktop\\CZ3003SSAD\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+>>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351

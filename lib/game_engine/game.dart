@@ -28,6 +28,10 @@ class Game extends StatelessWidget {
             : sizeScreen.width) /
         9;
     tileSize = tileSize.roundToDouble();
+    //input the version of the world that we want. Enter the data of the world chosen
+    //dynamically set this variable at the start
+    //world 1 and 3 currently working now
+    int currentWorld = 4;
     //TiledWorldMap map =
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -62,7 +66,7 @@ class Game extends StatelessWidget {
           player: Knight(Position((tileSize * 2), (tileSize * 3)), tileSize),
           interface: KnightInterface(),
           map: TiledWorldMap(
-            'world_2.json',
+            'world_$currentWorld.json',
             forceTileSize: Size(32, 32),
           )
             // ..registerObject(
@@ -79,7 +83,6 @@ class Game extends StatelessWidget {
       },
     );
   }
-
 
   //list of NPC that apepars.
 

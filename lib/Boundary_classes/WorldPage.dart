@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ssadgame/Boundary_classes/StagePage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class WorldPage extends StatefulWidget {
   //Passing of data of currentCharacter
@@ -16,9 +17,11 @@ class WorldPage extends StatefulWidget {
 class _WorldPageState extends State<WorldPage> {
   var lock = [false, true, true, true, true, true];
   var worldScore = 42;
+  String userId = FirebaseAuth.instance.currentUser.uid;
 
   @override
   Widget build(BuildContext context) {
+    print(userId);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -119,8 +122,10 @@ class _WorldPageState extends State<WorldPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              StagePage(title: ds['world'])));
+                                          builder: (context) => StagePage(
+                                                title: ds['world'],
+                                                worldName: ds.id,
+                                              )));
                                 },
                                 child: Container(
                                     width: 130,
@@ -133,9 +138,10 @@ class _WorldPageState extends State<WorldPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Text(ds['world']),
-                                        Text(""),
-                                        Text(ds['score'] + "/250"),
+                                        Text(ds['world'] + '\n'),
+                                        Text(ds['score'][userId] == null
+                                            ? "0"
+                                            : ds['score'][userId] + "/250"),
                                       ],
                                     )),
                               ),

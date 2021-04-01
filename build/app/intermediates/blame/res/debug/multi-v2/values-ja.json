@@ -1,10 +1,16 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "/Users/chris/dev/CZ3003SSAD/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ja/values-ja.xml",
             "map": [
                 {
                     "source": "/Users/chris/.gradle/caches/transforms-2/files-2.1/97461efba6c5e9e0983cc52e8129f2d5/play-services-base-17.1.0/res/values-ja/values.xml",
+=======
+            "outputFile": "C:\\Users\\ASUS\\Desktop\\CZ3003SSAD\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ja\\values-ja.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\transforms-2\\files-2.1\\97461efba6c5e9e0983cc52e8129f2d5\\play-services-base-17.1.0\\res\\values-ja\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +27,29 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\transforms-2\\files-2.1\\3e26ef26d15f163a2f1a31a2130a0254\\core-1.1.0\\res\\values-ja\\values-ja.xml",
+>>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,347,513,631,735,926,1044,1175,1299,1492,1591,1755,1872,2051,2197,2283,2368",
+                        "endColumns": "101,165,117,103,190,117,130,123,192,98,163,116,178,145,85,84,95",
+                        "endOffsets": "346,512,630,734,925,1043,1174,1298,1491,1590,1754,1871,2050,2196,2282,2367,2463"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,211,377,499,607,798,920,1055,1364,1557,1660,1824,1945,2124,2274,2364,2453",
+                        "endColumns": "105,165,121,107,190,121,134,127,192,102,163,120,178,149,89,88,99",
+                        "endOffsets": "206,372,494,602,793,915,1050,1178,1552,1655,1819,1940,2119,2269,2359,2448,2548"
+                    }
+                },
+                {
+<<<<<<< HEAD
                     "source": "/Users/chris/.gradle/caches/transforms-2/files-2.1/dc12e0198a6281d3aeabcec51caf4b95/jetified-play-services-basement-17.1.0/res/values-ja/values.xml",
+=======
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\transforms-2\\files-2.1\\8b148615e6053fc0a6e5f188b5800244\\jetified-play-services-basement-17.1.0\\res\\values-ja\\values.xml",
+>>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -36,6 +64,7 @@
                         "endColumns": "180",
                         "endOffsets": "1359"
                     }
+<<<<<<< HEAD
                 },
                 {
                     "source": "/Users/chris/.gradle/caches/transforms-2/files-2.1/3e26ef26d15f163a2f1a31a2130a0254/core-1.1.0/res/values-ja/values-ja.xml",
@@ -53,6 +82,8 @@
                         "endColumns": "100",
                         "endOffsets": "2649"
                     }
+=======
+>>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351
                 }
             ]
         }
