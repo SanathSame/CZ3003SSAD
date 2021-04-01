@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ssadgame/Boundary_classes/Teacher/HomePage_Teacher.dart';
 
 import 'HomePage.dart';
 
@@ -90,31 +91,6 @@ class _LoginPageState extends State<LoginPage> {
                                   minWidth: MediaQuery.of(context).size.width,
                                   padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
                                   onPressed: () async {
-                                    // FocusScope.of(context)
-                                    //     .requestFocus(FocusNode());
-                                    // if (_formKey.currentState.validate()) {
-                                    //   if (LoginController.accountInDB(
-                                    //       email.text, password.text)) {
-                                    //     Navigator.of(context).push(
-                                    //         MaterialPageRoute(
-                                    //             builder: (context) =>
-                                    //                 HomePage()));
-                                    //   } else {
-                                    //     SnackBar sb = SnackBar(
-                                    //       content: Text(
-                                    //         'The email or password is invalid or the account does not exist',
-                                    //         style: TextStyle(
-                                    //           fontSize: 16,
-                                    //         ),
-                                    //       ),
-                                    //       backgroundColor: Colors.redAccent,
-                                    //       duration: Duration(seconds: 5),
-                                    //     );
-                                    //     Scaffold.of(context)
-                                    //       ..hideCurrentSnackBar()
-                                    //       ..showSnackBar(sb);
-                                    //   }
-                                    // }
                                     try {
                                       UserCredential userCredential =
                                           await FirebaseAuth.instance
@@ -125,11 +101,13 @@ class _LoginPageState extends State<LoginPage> {
                                       // check Firestore for role
                                       String userId =
                                           FirebaseAuth.instance.currentUser.uid;
-                                      FirebaseFirestore.instance
-                                          .collection('users')
+                                      await FirebaseFirestore.instance
+                                          .collection("users")
                                           .doc(userId)
                                           .get()
                                           .then((documentSnapshot) {
+                                        print(userId);
+                                        print(documentSnapshot.data());
                                         if ((documentSnapshot.data()['role']) ==
                                             'student') {
                                           print("THIS IS A STUDENT");
@@ -143,12 +121,15 @@ class _LoginPageState extends State<LoginPage> {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomePage()));
+                                                      HomePage_Teacher()));
                                         }
                                       });
 
                                       // redirect them
-
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  HomePage()));
                                     } on FirebaseException catch (e) {
                                       if (e.code == 'user-not-found') {
                                         print('No user found for that email.');
