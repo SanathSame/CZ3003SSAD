@@ -34,11 +34,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return MaterialApp(initialRoute: '/LoginPage', routes: {
-=======
-    return MaterialApp(initialRoute: '/game_engine/main', routes: {
->>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351
       '/LoginPage': (context) => LoginPage(),
       '/HomePage': (context) => HomePage(),
       '/choices': (context) => GameMode(),
@@ -50,19 +46,12 @@ class MyApp extends StatelessWidget {
       '/AdventureLeaderBoardPage': (context) => AdventureLeaderBoardPage(),
       '/PvPLeaderBoardPage': (context) => PvPLeaderBoardPage(),
       '/LevelLeaderBoardPage': (context) => LevelLeaderBoardPage(),
-<<<<<<< HEAD
       '/SummaryReportWorldPage': (context) => SummaryReportWorldPage(),
       '/SummaryReportStagePage': (context) => SummaryReportStagePage(),
       '/SummaryReportLevelPage': (context) => SummaryReportLevelPage(),
       '/PVP': (context) => PVPage(),
       '/Teacher/HomePage_Teacher': (context) => HomePage_Teacher(),
       '/Teacher/WorldPage_Teacher': (context) => WorldPage_Teacher(),
-=======
-      '/WorldPage_Teacher': (context) => WorldPage_Teacher(),
-      '/SummaryReportWorldPage': (context) => SummaryReportWorldPage(),
-      '/SummaryReportStagePage': (context) => SummaryReportStagePage(),
-      '/SummaryReportLevelPage': (context) => SummaryReportLevelPage(),
->>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351
     });
   }
 }
