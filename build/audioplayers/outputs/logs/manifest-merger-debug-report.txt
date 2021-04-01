@@ -1,5 +1,36 @@
 -- Merging decision tree log ---
 manifest
+<<<<<<< HEAD
+ADDED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml:1:1-4:35
+INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml:1:1-4:35
+INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml:1:1-4:35
+INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml:1:1-4:35
+INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml:1:1-4:35
+INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml:1:1-4:35
+INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml:1:1-4:35
+	package
+		ADDED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml:2:5-36
+		INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml
+		INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml:4:5-32
+		INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml
+		INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml:1:11-69
+	android:versionCode
+		ADDED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml:3:5-28
+		INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml
+		INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml
+uses-sdk
+INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml
+INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml
+		ADDED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml
+		INJECTED from /Users/chris/dev/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.15.1/android/src/main/AndroidManifest.xml
+=======
 ADDED from C:\src\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\audioplayers-0.15.1\android\src\main\AndroidManifest.xml:1:1-4:35
 INJECTED from C:\src\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\audioplayers-0.15.1\android\src\main\AndroidManifest.xml:1:1-4:35
 INJECTED from C:\src\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\audioplayers-0.15.1\android\src\main\AndroidManifest.xml:1:1-4:35
@@ -29,3 +60,4 @@ INJECTED from C:\src\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\audiopla
 		INJECTED from C:\src\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\audioplayers-0.15.1\android\src\main\AndroidManifest.xml
 		ADDED from C:\src\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\audioplayers-0.15.1\android\src\main\AndroidManifest.xml
 		INJECTED from C:\src\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\audioplayers-0.15.1\android\src\main\AndroidManifest.xml
+>>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351

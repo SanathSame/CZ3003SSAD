@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ssadgame/Boundary_classes/StagePage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class WorldPage extends StatefulWidget {
-
   //Passing of data of currentCharacter
   // String characterSelected;
   // WorldPage({this.characterSelected});
@@ -15,9 +17,11 @@ class WorldPage extends StatefulWidget {
 class _WorldPageState extends State<WorldPage> {
   var lock = [false, true, true, true, true, true];
   var worldScore = 42;
+  String userId = FirebaseAuth.instance.currentUser.uid;
 
   @override
   Widget build(BuildContext context) {
+    print(userId);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -83,286 +87,351 @@ class _WorldPageState extends State<WorldPage> {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width / 2.5,
-                bottom: MediaQuery.of(context).size.height / 2),
-            child: Align(
-              alignment: Alignment.center,
-              child: (lock[0] == true)
-                  ? Container(
-                  alignment: Alignment.center,
-                  width: 130,
-                  height: 130,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.black),
-                    color: Colors.grey,
-                  ),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 15),
-                        child: Text("World 1"),
-                      ),
-                      Icon(Icons.lock, size: 45),
-                    ],
-                  ))
-                  : GestureDetector(
-                onTap: () {
-                  Navigator.popAndPushNamed(context, '/StagePage');
-                },
-                child: Container(
-                    width: 130,
-                    height: 130,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.black),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("World 1"),
-                        Text(""),
-                        Text(worldScore.toString() + "/250"),
-                      ],
-                    )),
-              ),
-            ),
+          StreamBuilder(
+            stream: FirebaseFirestore.instance.collection('worlds').snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return new ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data.docs.length,
+                    itemBuilder: (context, index) {
+                      DocumentSnapshot ds = snapshot.data.docs[index];
+                      return Align(
+                        alignment: Alignment.center,
+                        child: (lock[0] == true)
+                            ? Container(
+                                alignment: Alignment.center,
+                                width: 130,
+                                height: 130,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(color: Colors.black),
+                                  color: Colors.grey,
+                                ),
+                                child: Stack(
+                                  children: [
+                                    Text(
+                                      ds['world'],
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    Icon(Icons.lock, size: 45),
+                                  ],
+                                ))
+                            : GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => StagePage(
+                                                title: ds['world'],
+                                                worldName: ds.id,
+                                              )));
+                                },
+                                child: Container(
+                                    width: 130,
+                                    height: 130,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      border: Border.all(color: Colors.black),
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(ds['world'] + '\n'),
+                                        Text(ds['score'][userId] == null
+                                            ? "0"
+                                            : ds['score'][userId] + "/250"),
+                                      ],
+                                    )),
+                              ),
+                      );
+                    });
+              } else {
+                return new SizedBox();
+              }
+            },
           ),
-          Padding(
-            padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width / 2.5,
-                bottom: MediaQuery.of(context).size.height / 2),
-            child: Align(
-              alignment: Alignment.center,
-              child: (lock[1] == true)
-                  ? Container(
-                  alignment: Alignment.center,
-                  width: 130,
-                  height: 130,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.black),
-                    color: Colors.grey,
-                  ),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 15),
-                        child: Text("World 2"),
-                      ),
-                      Icon(Icons.lock, size: 45),
-                    ],
-                  ))
-                  : GestureDetector(
-                onTap: () {
-                  print("TAPPED");
-                },
-                child: Container(
-                    width: 130,
-                    height: 130,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.black),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("World 2"),
-                        Text(""),
-                        Text(worldScore.toString() + "/250"),
-                      ],
-                    )),
-              ),
-            ),
-          ),
-          Padding(
-            padding:
-            EdgeInsets.only(right: MediaQuery.of(context).size.width / 2.5),
-            child: Align(
-              alignment: Alignment.center,
-              child: (lock[2] == true)
-                  ? Container(
-                  alignment: Alignment.center,
-                  width: 130,
-                  height: 130,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.black),
-                    color: Colors.grey,
-                  ),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 15),
-                        child: Text("World 3"),
-                      ),
-                      Icon(Icons.lock, size: 45),
-                    ],
-                  ))
-                  : GestureDetector(
-                onTap: () {
-                  print("TAPPED");
-                },
-                child: Container(
-                    width: 130,
-                    height: 130,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.black),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("World 3"),
-                        Text(""),
-                        Text(worldScore.toString() + "/250"),
-                      ],
-                    )),
-              ),
-            ),
-          ),
-          Padding(
-            padding:
-            EdgeInsets.only(left: MediaQuery.of(context).size.width / 2.5),
-            child: Align(
-              alignment: Alignment.center,
-              child: (lock[3] == true)
-                  ? Container(
-                  alignment: Alignment.center,
-                  width: 130,
-                  height: 130,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.black),
-                    color: Colors.grey,
-                  ),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 15),
-                        child: Text("World 4"),
-                      ),
-                      Icon(Icons.lock, size: 45),
-                    ],
-                  ))
-                  : GestureDetector(
-                onTap: () {
-                  print("TAPPED");
-                },
-                child: Container(
-                    width: 130,
-                    height: 130,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.black),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("World 4"),
-                        Text(""),
-                        Text(worldScore.toString() + "/250"),
-                      ],
-                    )),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width / 2.5,
-                top: MediaQuery.of(context).size.height / 2),
-            child: Align(
-              alignment: Alignment.center,
-              child: (lock[4] == true)
-                  ? Container(
-                  alignment: Alignment.center,
-                  width: 130,
-                  height: 130,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.black),
-                    color: Colors.grey,
-                  ),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 15),
-                        child: Text("World 5"),
-                      ),
-                      Icon(Icons.lock, size: 45),
-                    ],
-                  ))
-                  : GestureDetector(
-                onTap: () {
-                  print("TAPPED");
-                },
-                child: Container(
-                    width: 130,
-                    height: 130,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.black),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("World 5"),
-                        Text(""),
-                        Text(worldScore.toString() + "/250"),
-                      ],
-                    )),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width / 2.5,
-                top: MediaQuery.of(context).size.height / 2),
-            child: Align(
-              alignment: Alignment.center,
-              child: (lock[4] == true)
-                  ? Container(
-                  alignment: Alignment.center,
-                  width: 130,
-                  height: 130,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.black),
-                    color: Colors.grey,
-                  ),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 15),
-                        child: Text("World 6"),
-                      ),
-                      Icon(Icons.lock, size: 45),
-                    ],
-                  ))
-                  : GestureDetector(
-                onTap: () {
-                  print("TAPPED");
-                },
-                child: Container(
-                    width: 130,
-                    height: 130,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.black),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("World 6"),
-                        Text(""),
-                        Text(worldScore.toString() + "/250"),
-                      ],
-                    )),
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.only(
+          //       right: MediaQuery.of(context).size.width / 2.5,
+          //       bottom: MediaQuery.of(context).size.height / 2),
+          //   child: Align(
+          //     alignment: Alignment.center,
+          //     child: (lock[0] == true)
+          //         ? Container(
+          //             alignment: Alignment.center,
+          //             width: 130,
+          //             height: 130,
+          //             decoration: BoxDecoration(
+          //               shape: BoxShape.circle,
+          //               border: Border.all(color: Colors.black),
+          //               color: Colors.grey,
+          //             ),
+          //             child: Stack(
+          //               children: [
+          //                 Padding(
+          //                   padding: EdgeInsets.only(top: 15),
+          //                   child: Text("World 1"),
+          //                 ),
+          //                 Icon(Icons.lock, size: 45),
+          //               ],
+          //             ))
+          //         : GestureDetector(
+          //             onTap: () {
+          //               Navigator.popAndPushNamed(context, '/StagePage');
+          //             },
+          //             child: Container(
+          //                 width: 130,
+          //                 height: 130,
+          //                 decoration: BoxDecoration(
+          //                   shape: BoxShape.circle,
+          //                   border: Border.all(color: Colors.black),
+          //                 ),
+          //                 child: Column(
+          //                   mainAxisAlignment: MainAxisAlignment.center,
+          //                   children: [
+          //                     Text("World 1"),
+          //                     Text(""),
+          //                     Text(worldScore.toString() + "/250"),
+          //                   ],
+          //                 )),
+          //           ),
+          //   ),
+          // ),
+          // Padding(
+          //   padding: EdgeInsets.only(
+          //       left: MediaQuery.of(context).size.width / 2.5,
+          //       bottom: MediaQuery.of(context).size.height / 2),
+          //   child: Align(
+          //     alignment: Alignment.center,
+          //     child: (lock[1] == true)
+          //         ? Container(
+          //             alignment: Alignment.center,
+          //             width: 130,
+          //             height: 130,
+          //             decoration: BoxDecoration(
+          //               shape: BoxShape.circle,
+          //               border: Border.all(color: Colors.black),
+          //               color: Colors.grey,
+          //             ),
+          //             child: Stack(
+          //               children: [
+          //                 Padding(
+          //                   padding: EdgeInsets.only(top: 15),
+          //                   child: Text("World 2"),
+          //                 ),
+          //                 Icon(Icons.lock, size: 45),
+          //               ],
+          //             ))
+          //         : GestureDetector(
+          //             onTap: () {
+          //               print("TAPPED");
+          //             },
+          //             child: Container(
+          //                 width: 130,
+          //                 height: 130,
+          //                 decoration: BoxDecoration(
+          //                   shape: BoxShape.circle,
+          //                   border: Border.all(color: Colors.black),
+          //                 ),
+          //                 child: Column(
+          //                   mainAxisAlignment: MainAxisAlignment.center,
+          //                   children: [
+          //                     Text("World 2"),
+          //                     Text(""),
+          //                     Text(worldScore.toString() + "/250"),
+          //                   ],
+          //                 )),
+          //           ),
+          //   ),
+          // ),
+          // Padding(
+          //   padding:
+          //       EdgeInsets.only(right: MediaQuery.of(context).size.width / 2.5),
+          //   child: Align(
+          //     alignment: Alignment.center,
+          //     child: (lock[2] == true)
+          //         ? Container(
+          //             alignment: Alignment.center,
+          //             width: 130,
+          //             height: 130,
+          //             decoration: BoxDecoration(
+          //               shape: BoxShape.circle,
+          //               border: Border.all(color: Colors.black),
+          //               color: Colors.grey,
+          //             ),
+          //             child: Stack(
+          //               children: [
+          //                 Padding(
+          //                   padding: EdgeInsets.only(top: 15),
+          //                   child: Text("World 3"),
+          //                 ),
+          //                 Icon(Icons.lock, size: 45),
+          //               ],
+          //             ))
+          //         : GestureDetector(
+          //             onTap: () {
+          //               print("TAPPED");
+          //             },
+          //             child: Container(
+          //                 width: 130,
+          //                 height: 130,
+          //                 decoration: BoxDecoration(
+          //                   shape: BoxShape.circle,
+          //                   border: Border.all(color: Colors.black),
+          //                 ),
+          //                 child: Column(
+          //                   mainAxisAlignment: MainAxisAlignment.center,
+          //                   children: [
+          //                     Text("World 3"),
+          //                     Text(""),
+          //                     Text(worldScore.toString() + "/250"),
+          //                   ],
+          //                 )),
+          //           ),
+          //   ),
+          // ),
+          // Padding(
+          //   padding:
+          //       EdgeInsets.only(left: MediaQuery.of(context).size.width / 2.5),
+          //   child: Align(
+          //     alignment: Alignment.center,
+          //     child: (lock[3] == true)
+          //         ? Container(
+          //             alignment: Alignment.center,
+          //             width: 130,
+          //             height: 130,
+          //             decoration: BoxDecoration(
+          //               shape: BoxShape.circle,
+          //               border: Border.all(color: Colors.black),
+          //               color: Colors.grey,
+          //             ),
+          //             child: Stack(
+          //               children: [
+          //                 Padding(
+          //                   padding: EdgeInsets.only(top: 15),
+          //                   child: Text("World 4"),
+          //                 ),
+          //                 Icon(Icons.lock, size: 45),
+          //               ],
+          //             ))
+          //         : GestureDetector(
+          //             onTap: () {
+          //               print("TAPPED");
+          //             },
+          //             child: Container(
+          //                 width: 130,
+          //                 height: 130,
+          //                 decoration: BoxDecoration(
+          //                   shape: BoxShape.circle,
+          //                   border: Border.all(color: Colors.black),
+          //                 ),
+          //                 child: Column(
+          //                   mainAxisAlignment: MainAxisAlignment.center,
+          //                   children: [
+          //                     Text("World 4"),
+          //                     Text(""),
+          //                     Text(worldScore.toString() + "/250"),
+          //                   ],
+          //                 )),
+          //           ),
+          //   ),
+          // ),
+          // Padding(
+          //   padding: EdgeInsets.only(
+          //       right: MediaQuery.of(context).size.width / 2.5,
+          //       top: MediaQuery.of(context).size.height / 2),
+          //   child: Align(
+          //     alignment: Alignment.center,
+          //     child: (lock[4] == true)
+          //         ? Container(
+          //             alignment: Alignment.center,
+          //             width: 130,
+          //             height: 130,
+          //             decoration: BoxDecoration(
+          //               shape: BoxShape.circle,
+          //               border: Border.all(color: Colors.black),
+          //               color: Colors.grey,
+          //             ),
+          //             child: Stack(
+          //               children: [
+          //                 Padding(
+          //                   padding: EdgeInsets.only(top: 15),
+          //                   child: Text("World 5"),
+          //                 ),
+          //                 Icon(Icons.lock, size: 45),
+          //               ],
+          //             ))
+          //         : GestureDetector(
+          //             onTap: () {
+          //               print("TAPPED");
+          //             },
+          //             child: Container(
+          //                 width: 130,
+          //                 height: 130,
+          //                 decoration: BoxDecoration(
+          //                   shape: BoxShape.circle,
+          //                   border: Border.all(color: Colors.black),
+          //                 ),
+          //                 child: Column(
+          //                   mainAxisAlignment: MainAxisAlignment.center,
+          //                   children: [
+          //                     Text("World 5"),
+          //                     Text(""),
+          //                     Text(worldScore.toString() + "/250"),
+          //                   ],
+          //                 )),
+          //           ),
+          //   ),
+          // ),
+          // Padding(
+          //   padding: EdgeInsets.only(
+          //       left: MediaQuery.of(context).size.width / 2.5,
+          //       top: MediaQuery.of(context).size.height / 2),
+          //   child: Align(
+          //     alignment: Alignment.center,
+          //     child: (lock[4] == true)
+          //         ? Container(
+          //             alignment: Alignment.center,
+          //             width: 130,
+          //             height: 130,
+          //             decoration: BoxDecoration(
+          //               shape: BoxShape.circle,
+          //               border: Border.all(color: Colors.black),
+          //               color: Colors.grey,
+          //             ),
+          //             child: Stack(
+          //               children: [
+          //                 Padding(
+          //                   padding: EdgeInsets.only(top: 15),
+          //                   child: Text("World 6"),
+          //                 ),
+          //                 Icon(Icons.lock, size: 45),
+          //               ],
+          //             ))
+          //         : GestureDetector(
+          //             onTap: () {
+          //               print("TAPPED");
+          //             },
+          //             child: Container(
+          //                 width: 130,
+          //                 height: 130,
+          //                 decoration: BoxDecoration(
+          //                   shape: BoxShape.circle,
+          //                   border: Border.all(color: Colors.black),
+          //                 ),
+          //                 child: Column(
+          //                   mainAxisAlignment: MainAxisAlignment.center,
+          //                   children: [
+          //                     Text("World 6"),
+          //                     Text(""),
+          //                     Text(worldScore.toString() + "/250"),
+          //                   ],
+          //                 )),
+          //           ),
+          //   ),
+          // ),
         ],
       ),
     );
