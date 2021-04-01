@@ -1,17 +1,10 @@
 {
     "logs": [
         {
-<<<<<<< HEAD
-            "outputFile": "/Users/chris/dev/CZ3003SSAD/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-bg/values-bg.xml",
-            "map": [
-                {
-                    "source": "/Users/chris/.gradle/caches/transforms-2/files-2.1/dc12e0198a6281d3aeabcec51caf4b95/jetified-play-services-basement-17.1.0/res/values-bg/values.xml",
-=======
             "outputFile": "C:\\Users\\ASUS\\Desktop\\CZ3003SSAD\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bg\\values-bg.xml",
             "map": [
                 {
                     "source": "C:\\Users\\ASUS\\.gradle\\caches\\transforms-2\\files-2.1\\8b148615e6053fc0a6e5f188b5800244\\jetified-play-services-basement-17.1.0\\res\\values-bg\\values.xml",
->>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -28,11 +21,7 @@
                     }
                 },
                 {
-<<<<<<< HEAD
-                    "source": "/Users/chris/.gradle/caches/transforms-2/files-2.1/3e26ef26d15f163a2f1a31a2130a0254/core-1.1.0/res/values-bg/values-bg.xml",
-=======
                     "source": "C:\\Users\\ASUS\\.gradle\\caches\\transforms-2\\files-2.1\\3e26ef26d15f163a2f1a31a2130a0254\\core-1.1.0\\res\\values-bg\\values-bg.xml",
->>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -49,11 +38,7 @@
                     }
                 },
                 {
-<<<<<<< HEAD
-                    "source": "/Users/chris/.gradle/caches/transforms-2/files-2.1/97461efba6c5e9e0983cc52e8129f2d5/play-services-base-17.1.0/res/values-bg/values.xml",
-=======
                     "source": "C:\\Users\\ASUS\\.gradle\\caches\\transforms-2\\files-2.1\\97461efba6c5e9e0983cc52e8129f2d5\\play-services-base-17.1.0\\res\\values-bg\\values.xml",
->>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",

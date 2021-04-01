@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'dart:ui';
+import 'package:ssadgame/Boundary_classes/HomePage.dart';
 import 'package:ssadgame/Boundary_classes/question_type/questions_1.dart';
 import 'package:ssadgame/Boundary_classes/question_type/questions_2.dart';
 import 'package:ssadgame/Boundary_classes/question_type/questions_3.dart';
@@ -118,6 +119,7 @@ class Npc_child extends SimpleEnemy {
   void showAnswer() {
     // Navigates to question page
     int ran = generateRand();
+    ran = 0;
     switch (ran) {
       case 0:
         Navigator.push(

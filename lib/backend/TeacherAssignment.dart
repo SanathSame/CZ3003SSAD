@@ -43,7 +43,7 @@ class TeacherAssignment {
               querySnapshot3.docs.forEach((level) {
                 levelScores.add(int.parse(level.data()['score']));
               });
-              stageScores.add('sum of all level scores');
+              stageScores.add(1);
             });
           });
         });
