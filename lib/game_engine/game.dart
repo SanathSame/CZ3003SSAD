@@ -31,7 +31,7 @@ class Game extends StatelessWidget {
     //input the version of the world that we want. Enter the data of the world chosen
     //dynamically set this variable at the start
     //world 1 and 3 currently working now
-    int currentWorld = 3;
+    int currentWorld = 4;
     //TiledWorldMap map =
     return LayoutBuilder(
       builder: (context, constraints) {
