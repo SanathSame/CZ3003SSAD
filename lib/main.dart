@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 import 'Boundary_classes/LoginPage.dart';
 import 'Boundary_classes/HomePage.dart';
+import 'Boundary_classes/PVP.dart';
 import 'Boundary_classes/choices.dart';
 import 'Boundary_classes/characterSelection.dart';
 import 'Boundary_classes/WorldPage.dart';
@@ -16,6 +17,7 @@ import 'Boundary_classes/SummaryReportWorldPage.dart';
 import 'Boundary_classes/SummaryReportLevelPage.dart';
 import 'Boundary_classes/SummaryReportStagePage.dart';
 
+import 'Boundary_classes/Teacher/HomePage_Teacher.dart';
 import 'Boundary_classes/Teacher/WorldPage_Teacher.dart';
 
 import 'game_engine/main.dart';
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/LoginPage',
+      initialRoute: '/Teacher/HomePage_Teacher',
       routes: {
         '/LoginPage': (context) => LoginPage(),
         '/HomePage': (context) => HomePage(),
@@ -46,10 +48,13 @@ class MyApp extends StatelessWidget {
         '/AdventureLeaderBoardPage': (context) => AdventureLeaderBoardPage(),
         '/PvPLeaderBoardPage': (context) => PvPLeaderBoardPage(),
         '/LevelLeaderBoardPage': (context) => LevelLeaderBoardPage(),
-        '/WorldPage_Teacher' : (context) => WorldPage_Teacher(),
         '/SummaryReportWorldPage': (context) => SummaryReportWorldPage(),
         '/SummaryReportStagePage': (context) => SummaryReportStagePage(),
         '/SummaryReportLevelPage': (context) => SummaryReportLevelPage(),
+        '/PVP': (context) => PVPage(),
+
+        '/Teacher/HomePage_Teacher': (context) => HomePage_Teacher(),
+        '/Teacher/WorldPage_Teacher' : (context) => WorldPage_Teacher(),
 
       });
   }
