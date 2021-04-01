@@ -1,6 +1,9 @@
 import 'dart:math';
 import 'dart:ui';
+import 'package:ssadgame/Boundary_classes/question_type/questions_1.dart';
+import 'package:ssadgame/Boundary_classes/question_type/questions_2.dart';
 import 'package:ssadgame/Boundary_classes/question_type/questions_3.dart';
+import 'package:ssadgame/Boundary_classes/question_type/questions_6.dart';
 import 'package:ssadgame/game_engine/Menu.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/cupertino.dart';
@@ -114,9 +117,45 @@ class Npc_child extends SimpleEnemy {
 
   void showAnswer() {
     // Navigates to question page
+    int ran = generateRand();
+    switch (ran) {
+      case 0:
+        Navigator.push(
+            gameRef.context, MaterialPageRoute(builder: (context) => mcq1()));
+        break;
+      case 1:
+        Navigator.push(
+            gameRef.context, MaterialPageRoute(builder: (context) => mcq2()));
+        break;
+      case 2:
+        Navigator.push(
+            gameRef.context, MaterialPageRoute(builder: (context) => mcq3()));
+        break;
+      case 3:
+        Navigator.push(
+            //not working
+            gameRef.context,
+            MaterialPageRoute(builder: (context) => mcq3()));
+        break;
+      case 4:
+        Navigator.push(
+            //don't have type 5?
+            gameRef.context,
+            MaterialPageRoute(builder: (context) => mcq3()));
+        break;
+      case 5:
+        Navigator.push(gameRef.context,
+            MaterialPageRoute(builder: (context) => questions_6()));
+        break;
+      default:
+        break;
+    }
+  }
+
+  int generateRand() {
+    //assuming there's 6 types of questions to display
     Random random = new Random();
     int randomNumber = random.nextInt(5); // from 0 upto 99 included
-    Navigator.push(
-        gameRef.context, MaterialPageRoute(builder: (context) => mcq3()));
+    return randomNumber;
   }
 }
