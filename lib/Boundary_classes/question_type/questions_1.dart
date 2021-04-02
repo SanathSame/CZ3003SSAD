@@ -12,6 +12,11 @@ class mcq1 extends StatefulWidget {
 }
 
 class _mcq1State extends State<mcq1> {
+  bool _button1HasBeenPressed = false;
+  bool _button2HasBeenPressed = false;
+  bool _button3HasBeenPressed = false;
+  bool _button4HasBeenPressed = false;
+  int _answer;
 
   @override
   Widget build(BuildContext context) {

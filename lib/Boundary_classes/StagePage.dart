@@ -78,151 +78,153 @@ class _StagePageState extends State<StagePage> {
       ),
 
       //The Topic Name/Heading
-      body: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    heightFactor: 2.0,
-                    child: Text(
-                      widget.title.toString(), //Hardcoded, need to change
-                      style: TextStyle(
-                        fontFamily: 'Orbitron',
-                        fontSize: 17,
-                        decorationColor: Colors.black,
-                        color: Colors.black,
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      heightFactor: 2.0,
+                      child: Text(
+                        widget.title.toString(), //Hardcoded, need to change
+                        style: TextStyle(
+                          fontFamily: 'Orbitron',
+                          fontSize: 17,
+                          decorationColor: Colors.black,
+                          color: Colors.black,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
-                  ),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      top: BorderSide(width: 1.0, color: Colors.black),
-                      bottom: BorderSide(width: 1.0, color: Colors.black),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        top: BorderSide(width: 1.0, color: Colors.black),
+                        bottom: BorderSide(width: 1.0, color: Colors.black),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: 20), //Adds space between the children of the Column
+              ],
+            ),
+            SizedBox(height: 20), //Adds space between the children of the Column
 
-          //The buttons
-          StreamBuilder(
-            stream: FirebaseFirestore.instance
-                .collection('worlds')
-                .doc(widget.worldName)
-                .collection('Stage')
-                .snapshots(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return new ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: snapshot.data.docs.length,
-                    itemBuilder: (context, index) {
-                      DocumentSnapshot ds = snapshot.data.docs[index];
+            //The buttons
+            StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection('worlds')
+                  .doc(widget.worldName)
+                  .collection('Stage')
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return new ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: snapshot.data.docs.length,
+                      itemBuilder: (context, index) {
+                        DocumentSnapshot ds = snapshot.data.docs[index];
 
-                      //COLLATE SCORES
-                      // _collateScores(ds);
+                        //COLLATE SCORES
+                        // _collateScores(ds);
 
-                      return Expanded(
-                        child: Container(
-                          padding: EdgeInsets.fromLTRB(20, 5, 20, 10),
-                          child: RaisedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LevelPage(
-                                        title: ds['name'],
-                                        stageName: ds.id,
-                                        worldName: widget.worldName)),
-                              );
-                            }, //Need to link to the next page
-                            child: Stack(children: [
-                              Column(
-                                //alignment: Alignment.topRight,
-                                children: <Widget>[
-                                  Column(
-                                    children: <Widget>[
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 10),
-                                            child: Container(
-                                              height: 30,
-                                              width: 100,
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                  color: Colors.black,
+                        return Expanded(
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(20, 5, 20, 10),
+                            child: RaisedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LevelPage(
+                                          title: ds['name'],
+                                          stageName: ds.id,
+                                          worldName: widget.worldName)),
+                                );
+                              }, //Need to link to the next page
+                              child: Stack(children: [
+                                Column(
+                                  //alignment: Alignment.topRight,
+                                  children: <Widget>[
+                                    Column(
+                                      children: <Widget>[
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.only(top: 10),
+                                              child: Container(
+                                                height: 30,
+                                                width: 100,
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                    color: Colors.black,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(10.0),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                              ),
-                                              child: Center(
-                                                child: Text(ds['score']
-                                                        [userId] +
-                                                    "/50"),
+                                                child: Center(
+                                                  child: Text(ds['score']
+                                                          [userId] +
+                                                      "/50"),
+                                                ),
                                               ),
                                             ),
+                                          ],
+                                        ),
+                                        Container(
+                                          child: Text(
+                                            ds.id,
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 27,
+                                              fontFamily: 'Orbitron',
+                                            ),
                                           ),
-                                        ],
-                                      ),
-                                      Container(
-                                        child: Text(
-                                          ds.id,
+                                        ),
+                                        SizedBox(height: 10),
+                                        Container(
+                                            child: Text(
+                                          ds['name'],
                                           style: TextStyle(
                                             color: Colors.black,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 27,
+                                            fontSize: 20,
                                             fontFamily: 'Orbitron',
                                           ),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      Container(
-                                          child: Text(
-                                        ds['name'],
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20,
-                                          fontFamily: 'Orbitron',
-                                        ),
-                                      )),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  )
-                                ],
-                              ),
-                            ]),
+                                        )),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    )
+                                  ],
+                                ),
+                              ]),
 
-                            color: Colors.white,
-                            shape: new RoundedRectangleBorder(
-                              side: BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10.0),
+                              color: Colors.white,
+                              shape: new RoundedRectangleBorder(
+                                side: BorderSide(color: Colors.black),
+                                borderRadius: new BorderRadius.circular(10.0),
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    });
-              } else {
-                print("nothing to return ");
-                return new SizedBox();
-              }
-            },
-          ),
-        ],
+                        );
+                      });
+                } else {
+                  print("nothing to return ");
+                  return new SizedBox();
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
