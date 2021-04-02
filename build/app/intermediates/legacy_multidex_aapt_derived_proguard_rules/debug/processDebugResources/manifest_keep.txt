@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 # Referenced at /Users/chris/dev/CZ3003SSAD/build/app/intermediates/merged_manifests/debug/AndroidManifest.xml:23
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
 # Referenced at /Users/chris/dev/CZ3003SSAD/build/app/intermediates/merged_manifests/debug/AndroidManifest.xml:23
-=======
-# Referenced at C:\Users\ASUS\Desktop\CZ3003SSAD\build\app\intermediates\merged_manifests\debug\AndroidManifest.xml:23
--keep class androidx.core.app.CoreComponentFactory { <init>(); }
-# Referenced at C:\Users\ASUS\Desktop\CZ3003SSAD\build\app\intermediates\merged_manifests\debug\AndroidManifest.xml:23
->>>>>>> 16d4c4948441073af39e3b0ba8732943923ec351
 -keep class io.flutter.app.FlutterApplication { <init>(); }

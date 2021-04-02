@@ -101,35 +101,32 @@ class _LoginPageState extends State<LoginPage> {
                                       // check Firestore for role
                                       String userId =
                                           FirebaseAuth.instance.currentUser.uid;
-                                      // await FirebaseFirestore.instance
-                                      //     .collection("users")
-                                      //     .doc(userId)
-                                      //     .get()
-                                      //     .then((documentSnapshot) {
-                                      //   print(userId);
-                                      //   print(documentSnapshot.data());
-                                      //   if ((documentSnapshot.data()['role']) ==
-                                      //       'student') {
-                                      //     print("THIS IS A STUDENT");
-                                      //     Navigator.of(context).push(
-                                      //         MaterialPageRoute(
-                                      //             builder: (context) =>
-                                      //                 HomePage()));
-                                      //   } else if ((documentSnapshot
-                                      //           .data()['role']) ==
-                                      //       'teacher') {
-                                      //     Navigator.of(context).push(
-                                      //         MaterialPageRoute(
-                                      //             builder: (context) =>
-                                      //                 HomePage_Teacher()));
-                                      //   }
-                                      // });
+                                      await FirebaseFirestore.instance
+                                          .collection("users")
+                                          .doc(userId)
+                                          .get()
+                                          .then((documentSnapshot) {
+                                        print(userId);
+                                        print(documentSnapshot.data());
+                                        if ((documentSnapshot.data()['role']) ==
+                                            'student') {
+                                          print("THIS IS A STUDENT");
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      HomePage()));
+                                        } else if ((documentSnapshot
+                                                .data()['role']) ==
+                                            'teacher') {
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      HomePage_Teacher()));
+                                        }
+                                      });
 
                                       // redirect them
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  HomePage()));
+
                                     } on FirebaseException catch (e) {
                                       if (e.code == 'user-not-found') {
                                         print('No user found for that email.');
