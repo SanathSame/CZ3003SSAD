@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:bonfire/bonfire.dart';
 import 'package:ssadgame/game_engine//knight.dart';
 import 'package:flutter/material.dart';
+import 'package:ssadgame/game_engine/ControlData.dart';
 
 class BarLifeComponent extends InterfaceComponent {
   double padding = 20;
@@ -13,9 +14,12 @@ class BarLifeComponent extends InterfaceComponent {
   double life = 0;
   double maxStamina = 100;
   double stamina = 0;
+  int score = 3;
+  ControlData cd;
 
-  BarLifeComponent()
-      : super(
+  BarLifeComponent(ControlData cd)
+      : this.cd = cd,
+        super(
           id: 1,
           position: Position(20, 20),
           sprite: Sprite('health_ui.png'),
@@ -40,8 +44,23 @@ class BarLifeComponent extends InterfaceComponent {
     try {
       _drawLife(c);
       _drawStamina(c);
+      _drawQuestions(c);
     } catch (e) {}
     super.render(c);
+  }
+
+  void _drawQuestions(Canvas canvas) {
+    int totalAnswered = cd.totalQuestions;
+    int score = cd.score;
+    TextSpan span = new TextSpan(
+        style: new TextStyle(color: Colors.blue[800], fontSize: 30),
+        text: "$score/$totalAnswered");
+    TextPainter tp = new TextPainter(
+        text: span,
+        textAlign: TextAlign.left,
+        textDirection: TextDirection.ltr);
+    tp.layout();
+    tp.paint(canvas, new Offset(position.left + 180, position.top + 5));
   }
 
   void _drawLife(Canvas canvas) {

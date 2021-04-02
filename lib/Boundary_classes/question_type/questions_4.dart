@@ -122,7 +122,9 @@ class _questions_4State extends State<questions_4> {
                       width: 90,
                       child: Expanded(
                         child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
                             child: Text("Next",
                                 style: TextStyle(
                                   fontSize: 20,

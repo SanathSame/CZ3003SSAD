@@ -3,11 +3,17 @@ import 'dart:ui';
 import 'package:bonfire/bonfire.dart';
 import 'package:ssadgame/game_engine/bar_life_component.dart';
 import 'package:ssadgame/game_engine/knight.dart';
+import 'package:ssadgame/game_engine/ControlData.dart';
 
 class KnightInterface extends GameInterface {
-  @override
+  ControlData cd;
+
+  KnightInterface(ControlData cd)
+      : this.cd = cd,
+        super();
+
   void resize(Size size) {
-    add(BarLifeComponent());
+    add(BarLifeComponent(cd));
     add(InterfaceComponent(
       sprite: Sprite('blue_button1.png'),
       spriteSelected: Sprite('blue_button2.png'),

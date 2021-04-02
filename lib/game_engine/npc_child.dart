@@ -11,13 +11,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ssadgame/game_engine/player_sprite/enemy_sprite_sheet.dart';
 import 'package:ssadgame/game_engine/Questions.dart';
+import 'package:ssadgame/game_engine/ControlData.dart';
 
 class Npc_child extends SimpleEnemy {
   Position initPosition;
   bool _seePlayerClose = false;
   double tileSize = 32;
-  Npc_child(this.initPosition, double tileSize)
-      : super(
+  ControlData cd;
+
+  Npc_child(this.initPosition, double tileSize, ControlData cd)
+      : this.cd = cd,
+        super(
           initPosition: initPosition,
           height: tileSize,
           width: tileSize,
@@ -73,7 +77,6 @@ class Npc_child extends SimpleEnemy {
 
   void die() {
     remove();
-
     super.die();
   }
 
@@ -119,35 +122,64 @@ class Npc_child extends SimpleEnemy {
   void showAnswer() {
     // Navigates to question page
     int ran = generateRand();
-    ran = 0;
     switch (ran) {
       case 0:
         Navigator.push(
             gameRef.context, MaterialPageRoute(builder: (context) => mcq1()));
+        if (true) {
+          cd.updateScoreCorrectAnswer();
+        } else {
+          cd.updateTotal();
+        }
         break;
       case 1:
         Navigator.push(
             gameRef.context, MaterialPageRoute(builder: (context) => mcq2()));
+        if (true) {
+          cd.updateScoreCorrectAnswer();
+        } else {
+          cd.updateTotal();
+        }
         break;
       case 2:
         Navigator.push(
             gameRef.context, MaterialPageRoute(builder: (context) => mcq3()));
+        if (true) {
+          cd.updateScoreCorrectAnswer();
+        } else {
+          cd.updateTotal();
+        }
         break;
       case 3:
         Navigator.push(
             //not working
             gameRef.context,
             MaterialPageRoute(builder: (context) => mcq3()));
+        if (true) {
+          cd.updateScoreCorrectAnswer();
+        } else {
+          cd.updateTotal();
+        }
         break;
       case 4:
         Navigator.push(
             //don't have type 5?
             gameRef.context,
             MaterialPageRoute(builder: (context) => mcq3()));
+        if (true) {
+          cd.updateScoreCorrectAnswer();
+        } else {
+          cd.updateTotal();
+        }
         break;
       case 5:
         Navigator.push(gameRef.context,
             MaterialPageRoute(builder: (context) => questions_6()));
+        if (true) {
+          cd.updateScoreCorrectAnswer();
+        } else {
+          cd.updateTotal();
+        }
         break;
       default:
         break;
@@ -157,7 +189,7 @@ class Npc_child extends SimpleEnemy {
   int generateRand() {
     //assuming there's 6 types of questions to display
     Random random = new Random();
-    int randomNumber = 0; // from 0 upto 99 included
+    int randomNumber = random.nextInt(5); // from 0 upto 99 included
     return randomNumber;
   }
 }

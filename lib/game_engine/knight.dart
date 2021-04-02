@@ -1,17 +1,22 @@
 import 'dart:ui';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:flame/animation.dart';
-import 'package:flutter/material.dart' as Navigation ;
-
+import 'package:flame/animation.dart' as FlameNavigation;
+import 'package:flutter/cupertino.dart' as Router;
+import 'package:flutter/material.dart' as Navigation;
+import 'package:ssadgame/game_engine/ControlData.dart';
+import 'Menu.dart';
 import 'npc_child.dart';
 
 class Knight extends SimplePlayer {
   bool spawn = false;
   double stamina = 100;
+  bool test = false;
+  ControlData cd;
 
-  Knight(Position initPosition, double tileSize)
-      : super(
+  Knight(Position initPosition, double tileSize, ControlData cd)
+      : this.cd = cd,
+        super(
           initPosition: initPosition,
           height: tileSize,
           width: tileSize,
@@ -49,9 +54,19 @@ class Knight extends SimplePlayer {
   @override
   void update(double dt) {
     // do anything
+    int totalAnswered = cd.totalQuestions;
     if (!spawn) {
       //addNpcInMap(100, 100);
-
+    }
+    if (totalAnswered == 10) {
+      //answered 10 quesiotns
+      print("it comes into here");
+      die();
+      Navigation.Navigator.of(gameRef.context).pushAndRemoveUntil(
+        Navigation.MaterialPageRoute(builder: (context) => Menu()),
+        (Router.Route<dynamic> route) => false,
+      );
+      return;
     }
     super.update(dt);
   }
@@ -85,6 +100,7 @@ class Knight extends SimplePlayer {
 
   @override
   void die() {
+    remove();
     super.die();
   }
 
@@ -92,8 +108,7 @@ class Knight extends SimplePlayer {
 
   void addNpcInMap(double x, double y) {
     //creates child
-    Enemy e = Npc_child(Position(x, y), 10);
-    gameRef.addGameComponent(e);
-    //gameRef.addGameComponent(Npc_child(Position(x, y), 10));
+    //Enemy e = Npc_child(Position(x, y), 10);
+    // gameRef.addGameComponent(e);
   }
 }
