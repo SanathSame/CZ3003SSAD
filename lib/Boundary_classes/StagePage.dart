@@ -129,7 +129,7 @@ class _StagePageState extends State<StagePage> {
                       DocumentSnapshot ds = snapshot.data.docs[index];
 
                       //COLLATE SCORES
-                      _collateScores(ds);
+                      // _collateScores(ds);
 
                       return Expanded(
                         child: Container(
@@ -145,51 +145,68 @@ class _StagePageState extends State<StagePage> {
                                         worldName: widget.worldName)),
                               );
                             }, //Need to link to the next page
-                            child: Stack(
-                              //alignment: Alignment.topRight,
-                              children: <Widget>[
-                                Column(
-                                  children: <Widget>[
-                                    SizedBox(height: 20),
-                                    Container(
-                                      child: Text(
-                                        ds.id,
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 27,
-                                          fontFamily: 'Orbitron',
+                            child: Stack(children: [
+                              Column(
+                                //alignment: Alignment.topRight,
+                                children: <Widget>[
+                                  Column(
+                                    children: <Widget>[
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 10),
+                                            child: Container(
+                                              height: 30,
+                                              width: 100,
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                  color: Colors.black,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
+                                              child: Center(
+                                                child: Text(ds['score']
+                                                        [userId] +
+                                                    "/50"),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Container(
+                                        child: Text(
+                                          ds.id,
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 27,
+                                            fontFamily: 'Orbitron',
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(height: 10),
-                                    Container(
-                                        child: Text(
-                                      ds['name'],
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontFamily: 'Orbitron',
-                                      ),
-                                    )),
-                                    SizedBox(height: 20),
-                                  ],
-                                ),
-                                Container(
-                                  height: 30,
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Colors.black,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10.0),
+                                      SizedBox(height: 10),
+                                      Container(
+                                          child: Text(
+                                        ds['name'],
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontFamily: 'Orbitron',
+                                        ),
+                                      )),
+                                    ],
                                   ),
-                                  child: Center(
-                                    child: Text("0" + "/10"),
-                                  ),
-                                ),
-                              ],
-                            ),
+                                  SizedBox(
+                                    height: 20,
+                                  )
+                                ],
+                              ),
+                            ]),
+
                             color: Colors.white,
                             shape: new RoundedRectangleBorder(
                               side: BorderSide(color: Colors.black),

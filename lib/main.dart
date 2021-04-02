@@ -52,10 +52,6 @@ class MyApp extends StatelessWidget {
       '/PVP': (context) => PVPage(),
       '/Teacher/HomePage_Teacher': (context) => HomePage_Teacher(),
       '/Teacher/WorldPage_Teacher': (context) => WorldPage_Teacher(),
-      '/WorldPage_Teacher': (context) => WorldPage_Teacher(),
-      '/SummaryReportWorldPage': (context) => SummaryReportWorldPage(),
-      '/SummaryReportStagePage': (context) => SummaryReportStagePage(),
-      '/SummaryReportLevelPage': (context) => SummaryReportLevelPage(),
     });
   }
 }
