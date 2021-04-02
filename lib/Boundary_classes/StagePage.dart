@@ -78,44 +78,44 @@ class _StagePageState extends State<StagePage> {
       ),
 
       //The Topic Name/Heading
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      heightFactor: 2.0,
-                      child: Text(
-                        widget.title.toString(), //Hardcoded, need to change
-                        style: TextStyle(
-                          fontFamily: 'Orbitron',
-                          fontSize: 17,
-                          decorationColor: Colors.black,
-                          color: Colors.black,
-                        ),
-                        textAlign: TextAlign.center,
+      body: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    heightFactor: 2.0,
+                    child: Text(
+                      widget.title.toString(), //Hardcoded, need to change
+                      style: TextStyle(
+                        fontFamily: 'Orbitron',
+                        fontSize: 17,
+                        decorationColor: Colors.black,
+                        color: Colors.black,
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        top: BorderSide(width: 1.0, color: Colors.black),
-                        bottom: BorderSide(width: 1.0, color: Colors.black),
-                      ),
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(width: 1.0, color: Colors.black),
+                      bottom: BorderSide(width: 1.0, color: Colors.black),
                     ),
                   ),
                 ),
-              ],
-            ),
-            SizedBox(height: 20), //Adds space between the children of the Column
+              ),
+            ],
+          ),
+          SizedBox(height: 20), //Adds space between the children of the Column
 
-            //The buttons
-            StreamBuilder(
+          //The buttons
+          Expanded(
+            child: StreamBuilder(
               stream: FirebaseFirestore.instance
                   .collection('worlds')
                   .doc(widget.worldName)
@@ -157,8 +157,8 @@ class _StagePageState extends State<StagePage> {
                                               MainAxisAlignment.end,
                                           children: [
                                             Padding(
-                                              padding:
-                                                  const EdgeInsets.only(top: 10),
+                                              padding: const EdgeInsets.only(
+                                                  top: 10),
                                               child: Container(
                                                 height: 30,
                                                 width: 100,
@@ -167,7 +167,8 @@ class _StagePageState extends State<StagePage> {
                                                     color: Colors.black,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(10.0),
+                                                      BorderRadius.circular(
+                                                          10.0),
                                                 ),
                                                 child: Center(
                                                   child: Text(ds['score']
@@ -223,8 +224,8 @@ class _StagePageState extends State<StagePage> {
                 }
               },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
