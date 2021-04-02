@@ -114,113 +114,116 @@ class _StagePageState extends State<StagePage> {
           SizedBox(height: 20), //Adds space between the children of the Column
 
           //The buttons
-          StreamBuilder(
-            stream: FirebaseFirestore.instance
-                .collection('worlds')
-                .doc(widget.worldName)
-                .collection('Stage')
-                .snapshots(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return new ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: snapshot.data.docs.length,
-                    itemBuilder: (context, index) {
-                      DocumentSnapshot ds = snapshot.data.docs[index];
+          Expanded(
+            child: StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection('worlds')
+                  .doc(widget.worldName)
+                  .collection('Stage')
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return new ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: snapshot.data.docs.length,
+                      itemBuilder: (context, index) {
+                        DocumentSnapshot ds = snapshot.data.docs[index];
 
-                      //COLLATE SCORES
-                      // _collateScores(ds);
+                        //COLLATE SCORES
+                        // _collateScores(ds);
 
-                      return Expanded(
-                        child: Container(
-                          padding: EdgeInsets.fromLTRB(20, 5, 20, 10),
-                          child: RaisedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LevelPage(
-                                        title: ds['name'],
-                                        stageName: ds.id,
-                                        worldName: widget.worldName)),
-                              );
-                            }, //Need to link to the next page
-                            child: Stack(children: [
-                              Column(
-                                //alignment: Alignment.topRight,
-                                children: <Widget>[
-                                  Column(
-                                    children: <Widget>[
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 10),
-                                            child: Container(
-                                              height: 30,
-                                              width: 100,
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                  color: Colors.black,
+                        return Expanded(
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(20, 5, 20, 10),
+                            child: RaisedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LevelPage(
+                                          title: ds['name'],
+                                          stageName: ds.id,
+                                          worldName: widget.worldName)),
+                                );
+                              }, //Need to link to the next page
+                              child: Stack(children: [
+                                Column(
+                                  //alignment: Alignment.topRight,
+                                  children: <Widget>[
+                                    Column(
+                                      children: <Widget>[
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 10),
+                                              child: Container(
+                                                height: 30,
+                                                width: 100,
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                    color: Colors.black,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10.0),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                              ),
-                                              child: Center(
-                                                child: Text(ds['score']
-                                                        [userId] +
-                                                    "/50"),
+                                                child: Center(
+                                                  child: Text(ds['score']
+                                                          [userId] +
+                                                      "/50"),
+                                                ),
                                               ),
                                             ),
+                                          ],
+                                        ),
+                                        Container(
+                                          child: Text(
+                                            ds.id,
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 27,
+                                              fontFamily: 'Orbitron',
+                                            ),
                                           ),
-                                        ],
-                                      ),
-                                      Container(
-                                        child: Text(
-                                          ds.id,
+                                        ),
+                                        SizedBox(height: 10),
+                                        Container(
+                                            child: Text(
+                                          ds['name'],
                                           style: TextStyle(
                                             color: Colors.black,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 27,
+                                            fontSize: 20,
                                             fontFamily: 'Orbitron',
                                           ),
-                                        ),
-                                      ),
-                                      SizedBox(height: 10),
-                                      Container(
-                                          child: Text(
-                                        ds['name'],
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20,
-                                          fontFamily: 'Orbitron',
-                                        ),
-                                      )),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  )
-                                ],
-                              ),
-                            ]),
+                                        )),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    )
+                                  ],
+                                ),
+                              ]),
 
-                            color: Colors.white,
-                            shape: new RoundedRectangleBorder(
-                              side: BorderSide(color: Colors.black),
-                              borderRadius: new BorderRadius.circular(10.0),
+                              color: Colors.white,
+                              shape: new RoundedRectangleBorder(
+                                side: BorderSide(color: Colors.black),
+                                borderRadius: new BorderRadius.circular(10.0),
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    });
-              } else {
-                print("nothing to return ");
-                return new SizedBox();
-              }
-            },
+                        );
+                      });
+                } else {
+                  print("nothing to return ");
+                  return new SizedBox();
+                }
+              },
+            ),
           ),
         ],
       ),
