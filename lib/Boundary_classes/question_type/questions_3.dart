@@ -10,6 +10,9 @@ class mcq3 extends StatefulWidget {
 }
 
 class _mcq3State extends State<mcq3> {
+  bool _button1HasBeenPressed = false;
+  bool _button2HasBeenPressed = false;
+  bool _answer;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,7 +109,6 @@ class _mcq3State extends State<mcq3> {
                     width: 345,
                     child: Expanded(
                       child: ElevatedButton(
-                        onPressed: () {},
                         child: Text("True",
                             style: TextStyle(
                               fontFamily: "Orbitron",
@@ -120,9 +122,17 @@ class _mcq3State extends State<mcq3> {
                             shape: new RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(10.0),
                             ),
-                            primary: Colors.white,
+                            //primary: Colors.white,
+                            primary: _button1HasBeenPressed ? Colors. greenAccent: Colors.white,
                             onPrimary: Colors.black,
-                          )
+                          ),
+                          onPressed: () => {
+                          setState(() {
+                            _button1HasBeenPressed = !_button1HasBeenPressed;
+                            (_button2HasBeenPressed) ? _button2HasBeenPressed = !_button2HasBeenPressed: _button2HasBeenPressed = _button2HasBeenPressed;
+                            (_button1HasBeenPressed) ? _answer = true: _answer = null;
+                          })
+                          },
                       ),
                     )
                 ),
@@ -132,23 +142,30 @@ class _mcq3State extends State<mcq3> {
                     width: 345,
                     child: Expanded(
                       child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text("False",
-                              style: TextStyle(
-                                fontFamily: "Orbitron",
-                                fontSize: 20,
-                              )),
-                          style: ElevatedButton.styleFrom(
-                            side: BorderSide(
-                              width: 1.0,
-                              color: Colors.black,
-                            ),
-                            shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(10.0),
-                            ),
-                            primary: Colors.white,
-                            onPrimary: Colors.black,
-                          )
+                        child: Text("False",
+                            style: TextStyle(
+                              fontFamily: "Orbitron",
+                              fontSize: 20,
+                            )),
+                        style: ElevatedButton.styleFrom(
+                          side: BorderSide(
+                            width: 1.0,
+                            color: Colors.black,
+                          ),
+                          shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(10.0),
+                          ),
+                          //primary: Colors.white,
+                          primary: _button2HasBeenPressed ? Colors. greenAccent: Colors.white,
+                          onPrimary: Colors.black,
+                        ),
+                        onPressed: () => {
+                          setState(() {
+                            _button2HasBeenPressed = !_button2HasBeenPressed;
+                            (_button1HasBeenPressed) ? _button1HasBeenPressed = !_button1HasBeenPressed: _button1HasBeenPressed = _button1HasBeenPressed;
+                            (_button2HasBeenPressed) ? _answer = false: _answer = null;
+                          })
+                        },
                       ),
                     )
                 ),
@@ -157,7 +174,98 @@ class _mcq3State extends State<mcq3> {
                     width: 90,
                     child: Expanded(
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            (_answer) ?
+
+                            showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)
+                                      ),
+                                      child: Stack(
+                                          overflow: Overflow.visible,
+                                          alignment: Alignment.topCenter,
+                                          children: [
+                                            Container(
+                                                height: 200,
+                                                child: Padding(
+                                                    padding: const EdgeInsets.fromLTRB(10, 70, 10, 10),
+                                                    child: Column(
+                                                        children: [
+                                                          Text(
+                                                            "Correct!",
+                                                            style: TextStyle(fontSize: 20),
+                                                            textAlign: TextAlign.center,
+                                                          ),
+                                                          SizedBox(height: 10),
+                                                          ElevatedButton(onPressed: () {
+                                                            Navigator.of(context).pop();
+                                                          },
+                                                            child: Text("Okay"),
+
+                                                          )
+                                                        ]
+
+                                                    )
+                                                )
+
+                                            )
+                                          ]
+                                      )
+                                  );
+                                }
+                            )
+                                :
+                            showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4.0)
+                                      ),
+                                      child: Stack(
+                                          overflow: Overflow.visible,
+                                          alignment: Alignment.topCenter,
+                                          children: [
+                                            Container(
+                                                height: 200,
+                                                child: Padding(
+                                                    padding: const EdgeInsets.fromLTRB(10, 70, 10, 10),
+                                                    child: Column(
+                                                        children: [
+                                                          Text(
+                                                            "Wrong! Answer is True",
+                                                            style: TextStyle(fontSize: 20),
+                                                            textAlign: TextAlign.center,
+                                                          ),
+                                                          SizedBox(height: 10),
+                                                          ElevatedButton(onPressed: () {
+                                                            Navigator.of(context).pop();
+                                                            //Navigator.of(context).pop();
+                                                          },
+                                                            child: Text("Okay"),
+
+                                                          )
+                                                        ]
+
+                                                    )
+                                                )
+
+                                            )
+                                          ]
+                                      )
+                                  );
+                                }
+                            );
+                            Navigator.of(context).pop()
+                            ;
+
+
+                          },
                           child: Text("Next",
                               style: TextStyle(
                                 fontFamily: "Orbitron",
@@ -187,3 +295,4 @@ class _mcq3State extends State<mcq3> {
     );
   }
 }
+

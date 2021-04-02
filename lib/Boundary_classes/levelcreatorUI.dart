@@ -15,12 +15,12 @@ class _levelCreatorState extends State<levelCreator> {
   @override
   Widget build(BuildContext context) {
     List<String> doubleList =
-        List<String>.generate(10, (int index) => '${index + 1}');
+    List<String>.generate(10, (int index) => '${index + 1}');
     List<DropdownMenuItem> menuItemList = doubleList
         .map((val) => DropdownMenuItem(value: val, child: Text(val)))
         .toList();
     List<String> mcqlist =
-        List<String>.generate(10, (int index) => '${index + 1}');
+    List<String>.generate(10, (int index) => '${index + 1}');
     List<DropdownMenuItem> menulist = doubleList
         .map((val) => DropdownMenuItem(value: val, child: Text(val)))
         .toList();
@@ -36,7 +36,7 @@ class _levelCreatorState extends State<levelCreator> {
             Container(
               width: double.infinity,
               decoration:
-                  BoxDecoration(border: Border.all(color: Colors.blueAccent)),
+              BoxDecoration(border: Border.all(color: Colors.blueAccent)),
               child: Center(
                 child: Text(
                   "Requirement Elicitation",

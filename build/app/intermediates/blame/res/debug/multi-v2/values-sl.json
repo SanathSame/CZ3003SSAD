@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/chris/dev/CZ3003SSAD/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-sl/values-sl.xml",
+            "outputFile": "C:\\Users\\albin\\Desktop\\New folder\\CZ3003SSAD\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sl\\values-sl.xml",
             "map": [
                 {
-                    "source": "/Users/chris/.gradle/caches/transforms-2/files-2.1/3e26ef26d15f163a2f1a31a2130a0254/core-1.1.0/res/values-sl/values-sl.xml",
+                    "source": "C:\\Users\\albin\\.gradle\\caches\\transforms-2\\files-2.1\\3e26ef26d15f163a2f1a31a2130a0254\\core-1.1.0\\res\\values-sl\\values-sl.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/chris/.gradle/caches/transforms-2/files-2.1/97461efba6c5e9e0983cc52e8129f2d5/play-services-base-17.1.0/res/values-sl/values.xml",
+                    "source": "C:\\Users\\albin\\.gradle\\caches\\transforms-2\\files-2.1\\97461efba6c5e9e0983cc52e8129f2d5\\play-services-base-17.1.0\\res\\values-sl\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/chris/.gradle/caches/transforms-2/files-2.1/dc12e0198a6281d3aeabcec51caf4b95/jetified-play-services-basement-17.1.0/res/values-sl/values.xml",
+                    "source": "C:\\Users\\albin\\.gradle\\caches\\transforms-2\\files-2.1\\c27dac238b26e89db81dae7439f8f877\\jetified-play-services-basement-17.1.0\\res\\values-sl\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
