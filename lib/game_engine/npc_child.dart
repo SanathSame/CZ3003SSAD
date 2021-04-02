@@ -157,7 +157,7 @@ class Npc_child extends SimpleEnemy {
   int generateRand() {
     //assuming there's 6 types of questions to display
     Random random = new Random();
-    int randomNumber = random.nextInt(5); // from 0 upto 99 included
+    int randomNumber = 0; // from 0 upto 99 included
     return randomNumber;
   }
 }

@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:flame/animation.dart' as FlameAnimation;
+import 'package:flame/animation.dart';
+import 'package:flutter/material.dart' as Navigation ;
 
 import 'npc_child.dart';
 
@@ -50,6 +51,7 @@ class Knight extends SimplePlayer {
     // do anything
     if (!spawn) {
       //addNpcInMap(100, 100);
+
     }
     super.update(dt);
   }

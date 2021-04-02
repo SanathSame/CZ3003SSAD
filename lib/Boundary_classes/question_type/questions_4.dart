@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'drag_and_drop_page.dart';
+import 'drag_and_drop_page.dart';
 
 void main() => runApp(MaterialApp(
       home: questions_4(),
