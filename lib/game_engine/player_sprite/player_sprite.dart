@@ -31,6 +31,9 @@ class PlayerSpriteSheet {
         textureHeight: 16,
       );
 
+  static Animation get attack => Animation.sequenced("human_damage.png", 6,
+      textureHeight: 16, textureWidth: 16);
+
   // static SimpleDirectionAnimation get simpleDirectionAnimation =>
   //     SimpleDirectionAnimation(
   //       idleLeft: idleLeft,

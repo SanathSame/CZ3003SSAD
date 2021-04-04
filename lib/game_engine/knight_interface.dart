@@ -23,7 +23,7 @@ class KnightInterface extends GameInterface {
       position: Position(150, 20),
       onTapComponent: () {
         if (gameRef.player != null) {
-          (gameRef.player as Knight).showEmote();
+          // (gameRef.player as Knight).showEmote();
         }
       },
     ));

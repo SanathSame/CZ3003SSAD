@@ -32,7 +32,7 @@ class Game extends StatelessWidget {
     //input the version of the world that we want. Enter the data of the world chosen
     //dynamically set this variable at the start
     //world 1 and 3 currently working now
-    int currentWorld = 4;
+    int currentWorld = 2;
     //TiledWorldMap map =
     ControlData cd = new ControlData();
     return LayoutBuilder(

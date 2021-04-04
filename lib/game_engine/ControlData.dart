@@ -4,7 +4,7 @@ class ControlData {
 
   ControlData() {
     this.score = 0;
-    this.totalQuestions = 0;
+    this.totalQuestions = 8;
   }
   void updateScoreCorrectAnswer() {
     score++;

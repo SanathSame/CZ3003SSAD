@@ -12,12 +12,14 @@ import 'package:flutter/material.dart';
 import 'package:ssadgame/game_engine/player_sprite/enemy_sprite_sheet.dart';
 import 'package:ssadgame/game_engine/Questions.dart';
 import 'package:ssadgame/game_engine/ControlData.dart';
+import 'package:flame/animation.dart' as FlameAnimation;
 
 class Npc_child extends SimpleEnemy {
   Position initPosition;
   bool _seePlayerClose = false;
   double tileSize = 32;
   ControlData cd;
+  double attack = 25;
 
   Npc_child(this.initPosition, double tileSize, ControlData cd)
       : this.cd = cd,
@@ -29,10 +31,30 @@ class Npc_child extends SimpleEnemy {
           speed: 100,
           collision: Collision(height: tileSize, width: tileSize),
           initDirection: Direction.right,
-          animIdleLeft: EnemySpriteSheet.idleLeft,
-          animIdleRight: EnemySpriteSheet.idleRight,
-          animRunRight: EnemySpriteSheet.runRight,
-          animRunLeft: EnemySpriteSheet.runLeft,
+          animIdleRight: FlameAnimation.Animation.sequenced(
+            "goblin_idle.png",
+            6,
+            textureWidth: 16,
+            textureHeight: 16,
+          ),
+          animIdleLeft: FlameAnimation.Animation.sequenced(
+            "goblin_idle_left.png",
+            6,
+            textureWidth: 16,
+            textureHeight: 16,
+          ),
+          animRunRight: FlameAnimation.Animation.sequenced(
+            "goblin_run_right.png",
+            6,
+            textureWidth: 16,
+            textureHeight: 16,
+          ),
+          animRunLeft: FlameAnimation.Animation.sequenced(
+            "goblin_run_left.png",
+            6,
+            textureWidth: 16,
+            textureHeight: 16,
+          ),
         );
 
   @override
@@ -54,14 +76,14 @@ class Npc_child extends SimpleEnemy {
             // showQuestions();
             //FightMe();
             //showResult();
-            showAnswer();
-            die();
+            // showAnswer();
+            // die();
             //execAttack();
           },
-          radiusVision: tileSize * 2,
+          radiusVision: tileSize * 3,
         );
       },
-      radiusVision: tileSize * 2,
+      radiusVision: tileSize * 3,
     );
 /*
     if (!_seePlayerClose) {
@@ -76,14 +98,16 @@ class Npc_child extends SimpleEnemy {
   }
 
   void die() {
+    fightMe();
+    showAnswer();
     remove();
     super.die();
   }
 
-  void FightMe() {
+  void fightMe() {
     //retrieve questions
     //display the question
-    String question = "Are you ready for a challenge?";
+    String question = "Don't think this is the end! Solve this question, HAH!";
     TalkDialog.show(
       gameRef.context,
       [
@@ -92,9 +116,6 @@ class Npc_child extends SimpleEnemy {
           Container(
             width: 50,
             height: 50,
-            child: AnimationWidget(
-              playing: true,
-            ),
           ),
         ),
       ],
@@ -191,5 +212,17 @@ class Npc_child extends SimpleEnemy {
     Random random = new Random();
     int randomNumber = random.nextInt(5); // from 0 upto 99 included
     return randomNumber;
+  }
+
+  void receiveDamage(double damage, int id) {
+    this.showDamage(
+      damage,
+      config: TextConfig(
+        fontSize: 10,
+        color: Colors.white,
+        fontFamily: 'Normal',
+      ),
+    );
+    super.receiveDamage(damage, id);
   }
 }
