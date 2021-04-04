@@ -73,6 +73,7 @@ class Npc_child extends SimpleEnemy {
         _seePlayerClose = true;
         this.seeAndMoveToPlayer(
           closePlayer: (player) {
+            execAttack();
             // showQuestions();
             //FightMe();
             //showResult();
@@ -140,14 +141,47 @@ class Npc_child extends SimpleEnemy {
     );
   }
 
-  void showAnswer() {
+  void execAttack() {
+    this.simpleAttackMelee(
+      damage: 10,
+      attackEffectBottomAnim: FlameAnimation.Animation.sequenced(
+        "atack_effect_bottom.png",
+        6,
+        textureWidth: 21,
+        textureHeight: 21,
+      ),
+      attackEffectLeftAnim: FlameAnimation.Animation.sequenced(
+        'atack_effect_left.png',
+        6,
+        textureWidth: 16,
+        textureHeight: 16,
+      ),
+      attackEffectRightAnim: FlameAnimation.Animation.sequenced(
+        'atack_effect_right.png',
+        6,
+        textureWidth: 16,
+        textureHeight: 16,
+      ),
+      attackEffectTopAnim: FlameAnimation.Animation.sequenced(
+        'atack_effect_top.png',
+        6,
+        textureWidth: 16,
+        textureHeight: 16,
+      ),
+      heightArea: 32,
+      widthArea: 32,
+    );
+  }
+
+  void showAnswer() async {
     // Navigates to question page
     int ran = generateRand();
-    switch (ran) {
+    switch (0) {
       case 0:
         Navigator.push(
             gameRef.context, MaterialPageRoute(builder: (context) => mcq1()));
         if (true) {
+          print("it shouldn't have printed");
           cd.updateScoreCorrectAnswer();
         } else {
           cd.updateTotal();

@@ -13,6 +13,7 @@ import 'package:ssadgame/game_engine/npc_child.dart';
 import 'boundary.dart';
 //import 'package:minifantasy/orc.dart';
 //import 'package:minifantasy/player.dart';
+import 'package:ssadgame/game_engine/mage.dart';
 
 class Game extends StatelessWidget {
   @override
@@ -88,7 +89,4 @@ class Game extends StatelessWidget {
       },
     );
   }
-
-  //list of NPC that apepars.
-
 }

@@ -236,7 +236,7 @@ class _mcq1State extends State<mcq1> {
                     width: 90,
                     child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          Navigator.pop(context, "true");
                         },
                         child: Text("Next",
                             style: TextStyle(

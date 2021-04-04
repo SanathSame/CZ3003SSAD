@@ -54,16 +54,15 @@ class Knight extends SimplePlayer {
   @override
   void update(double dt) {
     // do anything
-    int totalAnswered = cd.totalQuestions;
+    int totalAnswered = cd.getTotalQuestions();
 
     if (totalAnswered == 10) {
       //answered 10 quesiotns
-      print("it comes into here");
       die();
-      Navigation.Navigator.of(gameRef.context).pushAndRemoveUntil(
-        Navigation.MaterialPageRoute(builder: (context) => Menu()),
-        (Router.Route<dynamic> route) => false,
-      );
+      // Navigation.Navigator.of(gameRef.context).pushAndRemoveUntil(
+      //   Navigation.MaterialPageRoute(builder: (context) => Menu()),
+      //   (Router.Route<dynamic> route) => false,
+      //);
       return;
     }
     super.update(dt);
@@ -138,7 +137,28 @@ class Knight extends SimplePlayer {
 
   @override
   void die() {
-    remove();
+    //remove();
     super.die();
+    remove();
+    gameFinished();
+  }
+
+  void gameFinished() {
+    TalkDialog.show(
+      gameRef.context,
+      [
+        Say(
+          "You have ran out of HP, Game Over!",
+          Router.Container(
+            width: 50,
+            height: 50,
+          ),
+        ),
+      ],
+    );
+    Navigation.Navigator.of(gameRef.context).pushAndRemoveUntil(
+      Navigation.MaterialPageRoute(builder: (context) => Menu()),
+      (Router.Route<dynamic> route) => false,
+    );
   }
 }
