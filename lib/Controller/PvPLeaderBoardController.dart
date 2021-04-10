@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'LevelLeaderBoardController.dart';
+
 class PvPLeaderBoardController extends SearchDelegate<LevelInfo> {
   static final PvPLeaderBoardController _pleaderBoardController =
   PvPLeaderBoardController._internal();
@@ -128,6 +130,7 @@ class PvPLeaderBoardController extends SearchDelegate<LevelInfo> {
     levelList = query.isEmpty
         ? loadLevelInfo()
         : loadLevelInfo().where((p) => p.title.contains(query)).toList();
+    sortList();
     return levelList.isEmpty
         ? Text(
       "No Results Found...",
@@ -136,7 +139,7 @@ class PvPLeaderBoardController extends SearchDelegate<LevelInfo> {
         : ListView.builder(
       itemCount: levelList.length,
       itemBuilder: (context, index) {
-        return Row(
+        return /*Row(
           children: [
             Container(
               width: 235,
@@ -155,7 +158,72 @@ class PvPLeaderBoardController extends SearchDelegate<LevelInfo> {
               child: Text("Challenge"),
             )
           ],
-        );
+        );*/
+          Container(
+            height: 60,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: Colors.grey, width: 1),
+              ),
+            ),
+            child: IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Container(
+                    width: 235,
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.only(left: 10.0),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        right: BorderSide(
+                          color: Colors.black,
+                          width: 1.0,
+                        ),
+                      ),
+                    ),
+                    child: GestureDetector(
+                        child: Text((index + 1).toString() +
+                            ". " +
+                            levelList[index].title),
+                        onTap: () {
+                          LevelLeaderBoardController().setSelectedLevel(levelList[index].title);
+                          Navigator.popAndPushNamed(
+                              context, '/LevelLeaderBoardPage');
+                        }
+                    ),
+
+
+                  ),
+                  Container(
+                    width: 75,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        right: BorderSide(
+                          color: Colors.black,
+                          width: 1.0,
+                        ),
+                      ),
+                    ),
+                    child:
+                    Text(levelList[index].ratings.toStringAsFixed(2)),
+                  ),
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: IconButton(
+                        icon: Icon(Icons.arrow_forward_sharp,
+                            size: 30),
+                        onPressed: () {print("Go to selected level");},
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
       },
     );
   }
@@ -173,13 +241,69 @@ class PvPLeaderBoardController extends SearchDelegate<LevelInfo> {
         : ListView.builder(
       itemCount: levelList.length,
       itemBuilder: (context, index) {
-        return ListTile(
-            title: Text(levelList[index].title),
-            subtitle:
-            Text("Level made by: " + levelList[index].nameOfCreator),
-            onTap: () {
-              close(context, null);
-            });
+        return Container(
+          height: 60,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(color: Colors.grey, width: 1),
+            ),
+          ),
+          child: IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  width: 235,
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.only(left: 10.0),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      right: BorderSide(
+                        color: Colors.black,
+                        width: 1.0,
+                      ),
+                    ),
+                  ),
+                  child: GestureDetector(
+                      child: Text((index + 1).toString() +
+                          ". " +
+                          levelList[index].title),
+                      onTap: () {
+                        LevelLeaderBoardController().setSelectedLevel(levelList[index].title);
+                        Navigator.popAndPushNamed(
+                            context, '/LevelLeaderBoardPage');
+                      }
+                  ),
+                ),
+                Container(
+                  width: 75,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      right: BorderSide(
+                        color: Colors.black,
+                        width: 1.0,
+                      ),
+                    ),
+                  ),
+                  child:
+                  Text(levelList[index].ratings.toStringAsFixed(2)),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_forward_sharp,
+                          size: 30),
+                      onPressed: () {print("Go to selected level");},
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
       },
     );
   }
