@@ -80,11 +80,48 @@ class AdventureLeaderBoardController extends SearchDelegate<StudentInfo> {
         : ListView.builder(
       itemCount: studentList.length,
       itemBuilder: (context, index) {
-        return ListTile(
-            title: Text(studentList[index].name),
-            onTap: () {
-              close(context, null);
-            });
+        return Container(
+          height: 120,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: Colors.grey,
+                width: 1,
+              ),
+            ),
+          ),
+          child: IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  width: MediaQuery.of(context).size.width / 1.6,
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.only(left: 10.0),
+                  child: Row(
+                    children: [
+                      Text((index + 1).toString() + ".",
+                          style: TextStyle(fontSize: 20)),
+                      Text("   "), //Padding
+                      Icon(Icons.face, size: 65),
+                      Text("  "), //Padding
+                      Text(studentList[index].name,
+                          style: TextStyle(fontSize: 20)),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(studentList[index].score.toString(),
+                        style: TextStyle(fontSize: 20)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
       },
     );
   }
@@ -102,11 +139,48 @@ class AdventureLeaderBoardController extends SearchDelegate<StudentInfo> {
         : ListView.builder(
       itemCount: studentList.length,
       itemBuilder: (context, index) {
-        return ListTile(
-            title: Text(studentList[index].name),
-            onTap: () {
-              close(context, null);
-            });
+        return Container(
+          height: 120,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: Colors.grey,
+                width: 1,
+              ),
+            ),
+          ),
+          child: IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  width: MediaQuery.of(context).size.width / 1.6,
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.only(left: 10.0),
+                  child: Row(
+                    children: [
+                      Text((index + 1).toString() + ".",
+                          style: TextStyle(fontSize: 20)),
+                      Text("   "), //Padding
+                      Icon(Icons.face, size: 65),
+                      Text("  "), //Padding
+                      Text(studentList[index].name,
+                          style: TextStyle(fontSize: 20)),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(studentList[index].score.toString(),
+                        style: TextStyle(fontSize: 20)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
       },
     );
   }
