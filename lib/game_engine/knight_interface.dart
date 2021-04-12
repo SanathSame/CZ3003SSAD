@@ -3,17 +3,11 @@ import 'dart:ui';
 import 'package:bonfire/bonfire.dart';
 import 'package:ssadgame/game_engine/bar_life_component.dart';
 import 'package:ssadgame/game_engine/knight.dart';
-import 'package:ssadgame/game_engine/ControlData.dart';
 
 class KnightInterface extends GameInterface {
-  ControlData cd;
-
-  KnightInterface(ControlData cd)
-      : this.cd = cd,
-        super();
-
+  @override
   void resize(Size size) {
-    add(BarLifeComponent(cd));
+    add(BarLifeComponent());
     add(InterfaceComponent(
       sprite: Sprite('blue_button1.png'),
       spriteSelected: Sprite('blue_button2.png'),
@@ -23,7 +17,7 @@ class KnightInterface extends GameInterface {
       position: Position(150, 20),
       onTapComponent: () {
         if (gameRef.player != null) {
-          // (gameRef.player as Knight).showEmote();
+          (gameRef.player as Knight).showEmote();
         }
       },
     ));

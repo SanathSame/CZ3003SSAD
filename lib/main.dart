@@ -19,6 +19,12 @@ import 'Boundary_classes/SummaryReportStagePage.dart';
 
 import 'Boundary_classes/Teacher/HomePage_Teacher.dart';
 import 'Boundary_classes/Teacher/WorldPage_Teacher.dart';
+import 'package:ssadgame/Boundary_classes/Teacher/BestPerformingStages.dart';
+import 'package:ssadgame/Boundary_classes/Teacher/BestPerformingWorldPage.dart';
+import 'package:ssadgame/Boundary_classes/Teacher/CreateFITBPage.dart';
+import 'package:ssadgame/Boundary_classes/Teacher/CreateMCQPage.dart';
+import 'package:ssadgame/Boundary_classes/Teacher/CreateTFPage.dart';
+import 'package:ssadgame/Boundary_classes/Teacher/SelectQuestionPage.dart';
 
 import 'game_engine/main.dart';
 
@@ -55,6 +61,12 @@ class MyApp extends StatelessWidget {
 
         '/Teacher/HomePage_Teacher': (context) => HomePage_Teacher(),
         '/Teacher/WorldPage_Teacher' : (context) => WorldPage_Teacher(),
+        '/Teacher/BestPerformingStages': (context) => BestPerformingStagePage(),
+        '/Teacher/BestPerformingWorldPage': (context) => BestPerformingWorldPage(),
+        '/Teacher/CreateFITBPage': (context) => CreateFITBPage(),
+        '/Teacher/CreateMCQPage': (context) => CreateMCQPage(),
+        '/Teacher/CreateTFPage': (context) => CreateTFPage(),
+        '/Teacher/SelectQuestionPage': (context) => SelectQuestionPage(),
 
       });
   }
