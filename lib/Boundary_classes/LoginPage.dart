@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -8,16 +9,12 @@ import 'package:ssadgame/Boundary_classes/Teacher/HomePage_Teacher.dart';
 
 import 'HomePage.dart';
 
-
-
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-
-
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20);
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -31,9 +28,9 @@ class _LoginPageState extends State<LoginPage> {
             Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/background.png'),
-                      fit: BoxFit.cover,
-                    ))),
+              image: AssetImage('assets/background.png'),
+              fit: BoxFit.cover,
+            ))),
             Builder(builder: (context) {
               return SingleChildScrollView(
                 child: Form(
@@ -57,9 +54,9 @@ class _LoginPageState extends State<LoginPage> {
                               },
                               decoration: InputDecoration(
                                 prefixIcon:
-                                Icon(Icons.email, color: Colors.grey[450]),
+                                    Icon(Icons.email, color: Colors.grey[450]),
                                 contentPadding:
-                                EdgeInsets.fromLTRB(20, 15, 20, 15),
+                                    EdgeInsets.fromLTRB(20, 15, 20, 15),
                                 hintText: "Email address",
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(32)),
@@ -77,9 +74,9 @@ class _LoginPageState extends State<LoginPage> {
                               },
                               decoration: InputDecoration(
                                 prefixIcon:
-                                Icon(Icons.lock, color: Colors.grey[450]),
+                                    Icon(Icons.lock, color: Colors.grey[450]),
                                 contentPadding:
-                                EdgeInsets.fromLTRB(20, 15, 20, 15),
+                                    EdgeInsets.fromLTRB(20, 15, 20, 15),
                                 hintText: "Password",
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(32.0)),
@@ -96,55 +93,40 @@ class _LoginPageState extends State<LoginPage> {
                                   onPressed: () async {
                                     try {
                                       UserCredential userCredential =
-                                      await FirebaseAuth.instance
-                                          .signInWithEmailAndPassword(
-                                          email: email.text,
-                                          password: password.text);
+                                          await FirebaseAuth.instance
+                                              .signInWithEmailAndPassword(
+                                                  email: email.text,
+                                                  password: password.text);
                                       // get user ID
                                       // check Firestore for role
                                       String userId =
-                                          FirebaseAuth.instance.currentUser.uid.toString();
-
-                                      // print("below");
-                                      // print(userId);
-                                      // print(FirebaseFirestore.instance.collection("users").doc(userId).get());
-
-                                      // await FirebaseFirestore.instance
-                                      //     .collection("users")
-                                      //     .doc(userId)
-                                      //     .get()
-                                      //     .then((DocumentSnapshot documentSnapshot) {
-                                      //   print(userId);
-                                      //   String role = 'role';
-                                      //   print('hello');
-                                      //
-                                      //
-                                      //   if ((documentSnapshot.data()[userId]) ==
-                                      //       'student') {
-                                      //     print("THIS IS A STUDENT");
-                                      //     Navigator.of(context).push(
-                                      //         MaterialPageRoute(
-                                      //             builder: (context) =>
-                                      //                 HomePage()));
-                                      //   } else if ((documentSnapshot
-                                      //       .data()['role']) ==
-                                      //       'teacher') {
-                                      //     Navigator.of(context).push(
-                                      //         MaterialPageRoute(
-                                      //             builder: (context) =>
-                                      //                 HomePage_Teacher()));
-                                      //   }
-                                      // });
-
-
-
-
+                                          FirebaseAuth.instance.currentUser.uid;
+                                      await FirebaseFirestore.instance
+                                          .collection("users")
+                                          .doc(userId)
+                                          .get()
+                                          .then((documentSnapshot) {
+                                        print(userId);
+                                        print(documentSnapshot.data());
+                                        if ((documentSnapshot.data()['role']) ==
+                                            'student') {
+                                          print("THIS IS A STUDENT");
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      HomePage()));
+                                        } else if ((documentSnapshot
+                                                .data()['role']) ==
+                                            'teacher') {
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      HomePage_Teacher()));
+                                        }
+                                      });
 
                                       // redirect them
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  HomePage()));
+
                                     } on FirebaseException catch (e) {
                                       if (e.code == 'user-not-found') {
                                         print('No user found for that email.');
@@ -165,6 +147,20 @@ class _LoginPageState extends State<LoginPage> {
                               style: style.copyWith(
                                 color: Colors.black,
                               )),
+                          // FlatButton(
+                          //   onPressed: (){
+                          //     Navigator.of(context).push(
+                          //         MaterialPageRoute(
+                          //             builder: (context) => RegisterPage())
+                          //     );
+                          //   },
+                          //   child: Text(
+                          //       "",
+                          //       style: TextStyle(
+                          //         color: Colors.white,
+                          //         decoration: TextDecoration.underline,
+                          //       )),
+                          // )
                         ],
                       )),
                 ),

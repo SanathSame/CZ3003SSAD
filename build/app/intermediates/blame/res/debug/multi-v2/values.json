@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\albin\\Desktop\\new\\CZ3003SSAD-main\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\danie\\AndroidStudioProjects\\CZ3003\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\albin\\.gradle\\caches\\transforms-2\\files-2.1\\3e26ef26d15f163a2f1a31a2130a0254\\core-1.1.0\\res\\values\\values.xml",
+                    "source": "C:\\Users\\danie\\.gradle\\caches\\transforms-2\\files-2.1\\3e26ef26d15f163a2f1a31a2130a0254\\core-1.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,83,84,88,89,90,91,98,141,173,210",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\albin\\Desktop\\new\\CZ3003SSAD-main\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "source": "C:\\Users\\danie\\AndroidStudioProjects\\CZ3003\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",
@@ -40,7 +40,26 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\albin\\.gradle\\caches\\transforms-2\\files-2.1\\97461efba6c5e9e0983cc52e8129f2d5\\play-services-base-17.1.0\\res\\values\\values.xml",
+                    "source": "C:\\Users\\danie\\AndroidStudioProjects\\CZ3003\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "137,850",
+                        "endLines": "8,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "492,1012"
+                    },
+                    "to": {
+                        "startLines": "112,118",
+                        "startColumns": "4,4",
+                        "startOffsets": "8523,8878",
+                        "endLines": "117,120",
+                        "endColumns": "12,12",
+                        "endOffsets": "8873,9038"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\danie\\.gradle\\caches\\transforms-2\\files-2.1\\97461efba6c5e9e0983cc52e8129f2d5\\play-services-base-17.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,33,46",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -59,7 +78,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\albin\\.gradle\\caches\\transforms-2\\files-2.1\\c27dac238b26e89db81dae7439f8f877\\jetified-play-services-basement-17.1.0\\res\\values\\values.xml",
+                    "source": "C:\\Users\\danie\\.gradle\\caches\\transforms-2\\files-2.1\\858b53dd23efed05f6542ac85e2a437b\\jetified-play-services-basement-17.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "4,7",
                         "startColumns": "0,0",
@@ -73,25 +92,6 @@
                         "startOffsets": "5259,6437",
                         "endColumns": "67,166",
                         "endOffsets": "5322,6599"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\albin\\Desktop\\new\\CZ3003SSAD-main\\android\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3,15",
-                        "startColumns": "4,4",
-                        "startOffsets": "134,835",
-                        "endLines": "8,17",
-                        "endColumns": "12,12",
-                        "endOffsets": "484,995"
-                    },
-                    "to": {
-                        "startLines": "112,118",
-                        "startColumns": "4,4",
-                        "startOffsets": "8523,8878",
-                        "endLines": "117,120",
-                        "endColumns": "12,12",
-                        "endOffsets": "8873,9038"
                     }
                 }
             ]

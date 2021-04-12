@@ -2,15 +2,21 @@ import 'dart:ui';
 
 import 'package:bonfire/bonfire.dart';
 import 'package:flame/animation.dart' as FlameAnimation;
-
+import 'package:flutter/cupertino.dart' as Router;
+import 'package:flutter/material.dart' as Navigation;
+import 'package:ssadgame/game_engine/ControlData.dart';
+import 'package:ssadgame/game_engine/player_sprite/sprite_sheet_player.dart';
+import 'Menu.dart';
 import 'npc_child.dart';
 
 class Knight extends SimplePlayer {
-  bool spawn = false;
   double stamina = 100;
+  bool test = false;
+  ControlData cd;
 
-  Knight(Position initPosition, double tileSize)
-      : super(
+  Knight(Position initPosition, double tileSize, ControlData cd)
+      : this.cd = cd,
+        super(
           initPosition: initPosition,
           height: tileSize,
           width: tileSize,
@@ -48,8 +54,16 @@ class Knight extends SimplePlayer {
   @override
   void update(double dt) {
     // do anything
-    if (!spawn) {
-      //addNpcInMap(100, 100);
+    int totalAnswered = cd.getTotalQuestions();
+
+    if (totalAnswered == 10) {
+      //answered 10 quesiotns
+      die();
+      // Navigation.Navigator.of(gameRef.context).pushAndRemoveUntil(
+      //   Navigation.MaterialPageRoute(builder: (context) => Menu()),
+      //   (Router.Route<dynamic> route) => false,
+      //);
+      return;
     }
     super.update(dt);
   }
@@ -69,29 +83,82 @@ class Knight extends SimplePlayer {
   @override
   void joystickAction(JoystickActionEvent event) {
     // do anything with event of the joystick
-    if (event.id == 1) {
-      addNpcInMap(0, 0);
-      addNpcInMap(50, 50);
+    if (event.id == 0 && event.event == ActionEvent.DOWN) {
+      actionAttack();
     } else if (event.id == 2) {}
     super.joystickAction(event);
   }
 
   @override
-  void receiveDamage(double damage, dynamic from) {
-    super.receiveDamage(damage, from);
+  void receiveDamage(double damage, int id) {
+    if (isDead) return;
+    this.showDamage(
+      damage,
+      config: TextConfig(
+        fontSize: 10,
+        color: Navigation.Colors.orange,
+        fontFamily: 'Normal',
+      ),
+    );
+    super.receiveDamage(damage, id);
+  }
+
+  void actionAttack() {
+    this.simpleAttackMelee(
+      damage: 25,
+      animationBottom: FlameAnimation.Animation.sequenced(
+        "atack_effect_bottom.png",
+        6,
+        textureWidth: 21,
+        textureHeight: 21,
+      ),
+      animationLeft: FlameAnimation.Animation.sequenced(
+        'atack_effect_left.png',
+        6,
+        textureWidth: 16,
+        textureHeight: 16,
+      ),
+      animationRight: FlameAnimation.Animation.sequenced(
+        'atack_effect_right.png',
+        6,
+        textureWidth: 16,
+        textureHeight: 16,
+      ),
+      animationTop: FlameAnimation.Animation.sequenced(
+        'atack_effect_top.png',
+        6,
+        textureWidth: 16,
+        textureHeight: 16,
+      ),
+      heightArea: 32,
+      widthArea: 32,
+    );
   }
 
   @override
   void die() {
+    //remove();
     super.die();
+    remove();
+    gameFinished();
   }
 
-  void showEmote() {}
-
-  void addNpcInMap(double x, double y) {
-    //creates child
-    Enemy e = Npc_child(Position(x, y), 10);
-    gameRef.addGameComponent(e);
-    //gameRef.addGameComponent(Npc_child(Position(x, y), 10));
+  void gameFinished() {
+    TalkDialog.show(
+      gameRef.context,
+      [
+        Say(
+          "You have ran out of HP, Game Over!",
+          Router.Container(
+            width: 50,
+            height: 50,
+          ),
+        ),
+      ],
+    );
+    Navigation.Navigator.of(gameRef.context).pushAndRemoveUntil(
+      Navigation.MaterialPageRoute(builder: (context) => Menu()),
+      (Router.Route<dynamic> route) => false,
+    );
   }
 }

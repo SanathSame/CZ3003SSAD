@@ -1,0 +1,313 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+  home: stage_review(),
+));
+
+class stage_review extends StatefulWidget {
+  @override
+  _stage_reviewState createState() => _stage_reviewState();
+}
+
+class _stage_reviewState extends State<stage_review> {
+  // Needed Variables - need to make this dynamic
+  int stage = 1;
+  int max_stage_score = 50;
+  int max_level_score = 10;
+  int level_1_score = 10;
+  int level_2_score = 10;
+  int level_3_score = 8;
+  int level_4_score = 7;
+  int level_5_score = 0;
+  int current_stage_score;
+
+  int calc_stage_score(){
+    current_stage_score = level_1_score + level_2_score + level_3_score + level_4_score + level_5_score;
+    return current_stage_score;
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(70.0),
+        child: AppBar(
+          title: Container(
+              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () {}, //link to the previous page, so should be the Stage Page where you click the score
+                    color: Colors.black,
+                    iconSize: 30,
+                  ),
+                  SizedBox(width: 55),
+                  Text("Stage $stage Review",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 25,
+                      )),
+                ],
+              )
+          ),
+          //centerTitle: true,
+          backgroundColor: Colors.white,
+        ),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.fromLTRB(60,60,60,40),
+            child: Container(
+              padding: EdgeInsets.fromLTRB(20, 20, 0, 0),
+              height: 90,
+              width: 300,
+              child: Container(
+                padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                child: Text("Current Stage Score: ${calc_stage_score()}/$max_stage_score",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
+                  ),),
+              ),
+              decoration:  BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                color: Colors.grey[300],
+              ),
+            ),
+          ),
+          Text("Your Best Scores: ",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          )),
+          SizedBox(height:20),
+          Container(
+            height: 400,
+            width: 300,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black,
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(25, 30, 0, 0),
+                      child: Container(
+                        height: 40,
+                        //width: 300,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                              child: Text("Level 1: $level_1_score/$max_level_score",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w500,
+                                ),),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(25, 30, 0, 0),
+                      child: Container(
+                        height: 40,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                              child: Text("Level 2: $level_2_score/$max_level_score",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w500,
+                                ),),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(25, 30, 0, 0),
+                      child: Container(
+                        height: 40,
+                        //width: 300,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                              child: Text("Level 3: $level_3_score/$max_level_score",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w500,
+                                ),),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(25, 30, 0, 0),
+                      child: Container(
+                        height: 40,
+                        //width: 300,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                              child: Text("Level 4: $level_4_score/$max_level_score",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w500,
+                                ),),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(25, 30, 0, 0),
+                      child: Container(
+                        height: 40,
+                        //width: 300,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                              child: Text("Level 5: $level_5_score/$max_level_score",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w500,
+                                ),),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              SizedBox(width: 30),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                      padding: EdgeInsets.fromLTRB(0, 28, 0, 0),
+                      child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Container(
+                              height: 40,
+                              child: FloatingActionButton(
+                                onPressed: () {},
+                                child: Icon(
+                                  Icons.navigate_next_rounded,
+                                ),
+                                backgroundColor: Colors.teal,)
+                          )
+                      )
+                  ),
+                  SizedBox(height: 4),
+                  Padding(
+                      padding: EdgeInsets.fromLTRB(0, 28, 0, 0),
+                      child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Container(
+                              height: 40,
+                              child: FloatingActionButton(
+                                onPressed: () {},
+                                child: Icon(
+                                  Icons.navigate_next_rounded,
+                                ),
+                                backgroundColor: Colors.teal,)
+                          )
+                      )
+                  ),
+                  SizedBox(height: 3),
+                  Padding(
+                      padding: EdgeInsets.fromLTRB(0, 28, 0, 0),
+                      child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Container(
+                              height: 40,
+                              child: FloatingActionButton(
+                                onPressed: () {},
+                                child: Icon(
+                                  Icons.navigate_next_rounded,
+                                ),
+                                backgroundColor: Colors.teal,)
+                          )
+                      )
+                  ),
+                  SizedBox(height: 1),
+                  Padding(
+                      padding: EdgeInsets.fromLTRB(0, 28, 0, 0),
+                      child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Container(
+                              height: 40,
+                              child: FloatingActionButton(
+                                onPressed: () {},
+                                child: Icon(
+                                  Icons.navigate_next_rounded,
+                                ),
+                                backgroundColor: Colors.teal,)
+                          )
+                      )
+                  ),
+                  SizedBox(height: 1),
+                  Padding(
+                      padding: EdgeInsets.fromLTRB(0, 28, 0, 0),
+                      child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Container(
+                              height: 40,
+                              child: FloatingActionButton(
+                                onPressed: () {},
+                                child: Icon(
+                                  Icons.navigate_next_rounded,
+                                ),
+                                backgroundColor: Colors.teal,)
+                          )
+                      )
+                  ),
+                ],
+              )
+              ],
+            )
+          )
+        ],
+      )
+      );
+  }
+}

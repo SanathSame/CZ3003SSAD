@@ -1,0 +1,200 @@
+import 'package:flutter/material.dart';
+import "dart:math";
+
+
+void main() => runApp(MaterialApp(
+  home: level_review(),
+));
+
+
+class level_review extends StatefulWidget {
+  @override
+  _level_reviewState createState() => _level_reviewState();
+}
+
+class _level_reviewState extends State<level_review> {
+  //Variable for the Level
+  int level = 1;
+
+  //Tried to replicate the List of Question Numbers
+  List<int> question_number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  //Icons
+  //THIS PART CAN BE REMOVED ONCE THE BACKEND COMES UP WITH THE MARKING SCHEME
+  List<String> result_value = ["Correct", "Wrong"];
+  var randomGenerator = Random();
+  String result;
+  int qn_num;
+
+
+  Widget output_icon (String result, int qn_num){
+    qn_num = randomGenerator.nextInt(10);
+
+    if(qn_num % 2 == 0){
+      result = "Correct";
+    }
+    else{
+      result = "Wrong";
+    }
+
+    if (result == "Correct"){
+      return Icon(Icons.done_sharp,//fiber_manual_record_sharp,
+      color: Colors.green[800],
+      size: 35,);
+    }
+    else {
+      return Icon(Icons.highlight_off_sharp,//fiber_manual_record_sharp,
+      color: Colors.red[700],
+      size: 35,);
+    }
+  }
+
+  List<String> questions = [
+    "Which is not a benefit of using a Dialog Map?",
+    "What does the arrow (shown below) represent in the UML Activity Diagram?",
+    "SRS should be written in natural language, in an unambiguous manner that may also include diagrams, if necessary.SRS should be written in natural language, in an unambiguous manner that may also include diagrams, if necessary.SRS should be written in natural language, in an unambiguous manner that may also include diagrams, if necessary.",
+    "How does the Use Case Diagram help in designing the Architecture of a system?",
+    "Are passive components used to represent solid lines?",
+    "What is Software Architecture?",
+    "What is the role of an Entity Class?",
+    "What are the different Architectural Styles?",
+    "What are the disadvantages of Layered Systems?",
+    "Last Question"];
+
+  List<String> answers = [
+    "Help spot the opportunities for reuse in the user interface.",
+    "Requirement Elicitation",
+    "SRS should be written in natural language, in an unambiguous manner that may also include diagrams, if necessary.",
+    "How does the Use Case Diagram help in designing the Architecture of a system?",
+    "Are passive components used to represent solid lines. SRS should be written in natural language, in an unambiguous manner that may also include diagrams, if necessary.SRS should be written in natural language, in an unambiguous manner that may also include diagrams, if necessary.",
+    "Software Architecture?",
+    "What is the role of an Entity Class?",
+    "What are the different Architectural Styles?",
+    "What are the disadvantages of Layered Systems?",
+    "Last Answer"];
+
+
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+     appBar: PreferredSize(
+       preferredSize: Size.fromHeight(70.0),
+       child: AppBar(
+         title: Container(
+           padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+           child: Row(
+             mainAxisAlignment: MainAxisAlignment.start,
+             crossAxisAlignment: CrossAxisAlignment.center,
+             children: <Widget>[
+               IconButton(
+                 icon: Icon(Icons.arrow_back),
+                 onPressed: () {}, //link to the previous page, so should be the Stage Page where you click the score
+                 color: Colors.black,
+                 iconSize: 30,
+               ),
+               SizedBox(width: 55),
+               Text("Level $level Review",
+                   style: TextStyle(
+                     color: Colors.black,
+                     fontSize: 25,
+                   )),
+             ],
+           )
+         ),
+         //centerTitle: true,
+         backgroundColor: Colors.white,
+       ),
+     ),
+      body: ListView.builder(
+        itemCount: questions.length, //need to change it according to the number of questions
+        shrinkWrap: true,
+        itemBuilder: (BuildContext context, int index) => Container(
+          width: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+          child: Card(
+            elevation: 5.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(0.0),
+            ),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 300.0,
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SingleChildScrollView(
+                    child: Card(
+                        elevation: 5.0,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: 50,
+                              child: Align(
+                                  alignment: Alignment.center,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      Text("Question ${index + 1}",
+                                        style: TextStyle(
+                                          fontSize: 22.0,
+                                        ),),
+                                      SizedBox(width: 55),
+                                      Container(
+                                        child: output_icon(result, qn_num),
+                                      )
+                                    ],
+                                  )
+                              ),
+                              color: Colors.grey[200],
+                            ),
+                          ],
+                        )
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                        padding: EdgeInsets.fromLTRB(5, 10, 0, 0),
+                        //to allow long questions to be scrolled
+                        child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: Text("Question:\n${questions[index]}",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                ))
+                        )
+                    ),
+                  ),
+                  SizedBox(height:10),
+                  Expanded(
+                    child: Container(
+                        padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                        //to allow long answers to be scrolled
+                        child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: Text("Answer:\n${answers[index]}",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                ))
+                        )
+                    ),
+
+                  )
+                ],
+              )
+            )
+          ),
+
+        ),
+      )
+    );
+  }
+
+}
+
