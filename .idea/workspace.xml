@@ -1025,7 +1025,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2006/powerup" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -1141,12 +1141,12 @@
     </state>
     <state x="2505" y="0" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617559137604" />
     <state x="468" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1617368141309" />
-    <state x="2606" y="225" key="FileChooserDialogImpl" timestamp="1617565972227">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1618211874750">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="2606" y="225" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617565972227" />
     <state x="549" y="178" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1617441223365" />
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1617269434692" />
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1618211874750" />
     <state width="1236" height="165" key="GridCell.Tab.0.bottom" timestamp="1618047320923">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
